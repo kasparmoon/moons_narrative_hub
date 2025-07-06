@@ -7,7 +7,7 @@ function App() {
     <div className="app-container">
       {/* Header Section */}
       <header className="app-header">
-        <h1>The Moons Narrative Hub</h1>
+        <h1>The Moons</h1>
         <nav className="main-nav">
           <ul>
             <li><a href="#novels">Novels</a></li>
@@ -85,7 +85,7 @@ function App() {
 
       {/* Footer Section */}
       <footer className="app-footer">
-        <p>&copy; 2025 The Moons Narrative Hub. All rights reserved by Kaspar Moon.</p>
+        <p>&copy; 2025 The Moons. All rights reserved by Kaspar Moon.</p>
       </footer>
     </div>
   );
