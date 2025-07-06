@@ -1,265 +1,547 @@
-/* frontend/src/App.css */
+/* frontend/src/App.css - Refined Aesthetic Design */
 
-/* Global Styles & Reset */
+/* --- 1. Basic Resets & Global Styles --- */
 :root {
-    --primary-color: #36454F; /* Charcoal */
-    --secondary-color: #F5F5DC; /* Beige/Cream */
-    --accent-color: #4CAF50; /* Green for buttons */
-    --text-color: #2c3e50; /* Darker blue-grey */
-    --light-text-color: #ecf0f1; /* Light grey */
-    --font-family-serif: 'Georgia', serif;
-    --font-family-sans: 'Arial', sans-serif;
-    --max-content-width: 800px;
-    --padding-base: 20px;
+  /* Color Palette - Inspired by moonlight, twilight, and deep narratives */
+  --color-primary-bg: #272B4D;      /* Deep subtle blue-purple background */
+  --color-secondary-bg: #F0EEF5;    /* Very light off-white, soft paper-like */
+  --color-text-dark: #333C4E;       /* Dark charcoal for text on light backgrounds */
+  --color-text-light: #F0EEF5;      /* Light text on dark backgrounds */
+  --color-accent-moon: #B2D8D8;     /* Soft, luminous moon glow (light blue-green) */
+  --color-accent-star: #FFDAB9;     /* Warm, inviting star shimmer (peach/cream) */
+  --color-button-primary: #5A6D8C;  /* Muted blue-grey for primary buttons */
+  --color-button-secondary: #D4A373; /* Earthy brown for secondary actions */
+  --color-border-subtle: rgba(255, 255, 255, 0.1); /* Very subtle light border */
+  --color-shadow-light: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.5);
+
+  /* Typography */
+  --font-family-primary: 'Merriweather', Georgia, serif; /* Elegant serif for body */
+  --font-family-headings: 'Playfair Display', 'Palatino Linotype', serif; /* Distinctive serif for titles */
+  --font-family-button: 'Roboto', sans-serif; /* Clean sans-serif for buttons */
+  --font-size-base: 1.15rem; /* Base font size, slightly larger for readability */
+  --line-height-base: 1.7;
+
+  /* Spacing */
+  --padding-lg: 3rem;
+  --padding-md: 2rem;
+  --padding-sm: 1.5rem;
+  --gap-lg: 2.5rem;
+  --gap-md: 1.5rem;
+  --gap-sm: 1rem;
 }
 
+/* Overall body styling */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-family-sans);
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--secondary-color);
-    min-height: 100vh; /* Ensure body takes full height */
-    display: flex; /* For overall app-container centering */
-    justify-content: center; /* Center the app container */
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-primary);
+  line-height: var(--line-height-base);
+  color: var(--color-text-light); /* Default text color */
+  background-color: var(--color-primary-bg); /* Main background color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column; /* Allow content to stack vertically */
+  align-items: center; /* Center content horizontally */
+  min-height: 100vh;
 }
 
-#root {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content within root */
-}
-
-/* App Container Layout (Flexbox) */
+/* Main app container for content width */
 .app-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Make sure it takes full viewport height */
-    width: 100%;
-    max-width: 1200px; /* Max width for the whole app */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* White background for the app */
+  width: 100%;
+  max-width: 1200px; /* Wider max-width for more spacious design */
+  margin: 0 auto; /* No top/bottom margin here, handled by sections */
+  padding: 0; /* Sections will handle their own padding */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center internal content */
 }
 
-/* Header Styling (Flexbox) */
+/* --- 2. Heading Styles --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headings);
+  color: var(--color-accent-moon); /* Headings in accent color */
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+  line-height: 1.2;
+  text-align: center; /* Center all headings by default */
+}
+
+h1 { font-size: 3.8rem; letter-spacing: -0.05em; text-shadow: 2px 2px 8px var(--color-shadow-dark); }
+h2 { font-size: 2.8rem; margin-top: 2.5rem; margin-bottom: 1.5rem; }
+h3 { font-size: 2rem; margin-top: 1.5rem; margin-bottom: 1rem; }
+h4 { font-size: 1.5rem; }
+
+/* General Paragraph Styles */
+p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+}
+
+/* --- 3. Header & Navigation --- */
 .app-header {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: var(--padding-base);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Space between title and nav */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem var(--padding-md);
+  background-color: rgba(39, 43, 77, 0.9); /* Semi-transparent header */
+  backdrop-filter: blur(8px); /* Frosted glass effect */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px var(--color-shadow-dark);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.app-header h1 {
-    margin: 0;
-    font-family: var(--font-family-serif);
-    font-size: 2.2em;
+.logo-placeholder {
+  height: 80px; /* Fixed height */
+  width: 80px;  /* Fixed width */
+  overflow: hidden; /* Hide anything outside the bounds */
+  border-radius: 50%; /* Make it circular */
+  border: 2px solid var(--color-accent-moon);
+  flex-shrink: 0; /* Prevent it from shrinking */
 }
+
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This is key: ensures image covers the area without distortion */
+  display: block; /* Remove extra space below image */
+  margin: 0; /* Remove default image margin */
+  border-radius: 0; /* Reset for circular container */
+}
+
 
 .main-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Flexbox for horizontal navigation */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: center;
-    gap: 15px; /* Space between nav items */
-}
-
-.main-nav a {
-    color: var(--light-text-color);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.main-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Main Content Area (Layout using Grid for the chapter page) */
-.main-content {
-    flex-grow: 1; /* Allows main content to take up available space */
-    padding: var(--padding-base);
-    max-width: var(--max-content-width); /* Max width for actual reading content */
-    margin: 0 auto; /* Center the content within the main area */
-    display: grid; /* Use grid for main story layout */
-    grid-template-columns: 1fr; /* Single column by default */
-    gap: 20px;
-}
-
-/* Chapter/Story/Poem Page Styling */
-.novel-chapter-page,
-.short-story-page,
-.poem-page {
-    background-color: #fff;
-    padding: var(--padding-base);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    gap: 15px;
-}
-
-.chapter-content h2,
-.story-content h2,
-.poem-content h2 {
-    font-family: var(--font-family-serif);
-    color: var(--primary-color);
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
-
-.chapter-content h3 {
-    font-family: var(--font-family-serif);
-    color: var(--text-color);
-    font-size: 1.4em;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.chapter-meta,
-.story-meta,
-.poem-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9em;
-    color: #666;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    gap: 10px;
-}
-
-.chapter-body,
-.story-body,
-.poem-body {
-    font-family: var(--font-family-serif);
-    font-size: 1.1em;
-    line-height: 1.8;
-    text-align: justify;
-}
-
-.chapter-image,
-.story-image {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Remove extra space below image */
-    margin: 15px auto; /* Center image and add vertical spacing */
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.read-aloud-button {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    white-space: nowrap; /* Prevent button text from wrapping */
-}
-
-.read-aloud-button:hover {
-    background-color: #45a049;
-    transform: translateY(-2px);
-}
-
-/* Chapter Navigation */
-.chapter-navigation {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 10px; /* Space between buttons if wrapped */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--gap-md);
 }
 
 .nav-button {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    flex-grow: 1; /* Allow buttons to grow to fill space */
-    text-align: center;
+  background: none;
+  border: 1px solid transparent;
+  color: var(--color-text-light);
+  font-family: var(--font-family-button);
+  font-size: 1.05rem;
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px; /* Pill-shaped buttons */
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .nav-button:hover {
-    background-color: #2c3e50;
+  color: var(--color-accent-star);
+  border-color: var(--color-accent-star);
+  background-color: rgba(255, 218, 185, 0.1); /* Subtle background on hover */
+  transform: translateY(-3px);
 }
 
-/* Footer Styling */
+.nav-auth-button {
+  background-color: var(--color-accent-moon);
+  color: var(--color-primary-bg);
+  font-weight: bold;
+  border-color: var(--color-accent-moon);
+  box-shadow: 0 4px 15px rgba(178, 216, 216, 0.3); /* Soft glow */
+}
+
+.nav-auth-button:hover {
+  background-color: var(--color-accent-star);
+  border-color: var(--color-accent-star);
+  color: var(--color-primary-bg);
+  box-shadow: 0 4px 20px rgba(255, 218, 185, 0.5);
+}
+
+/* --- 4. Section & Card Layouts --- */
+.section-title {
+  font-size: 2.8rem;
+  margin-top: var(--padding-lg);
+  margin-bottom: var(--padding-md);
+  color: var(--color-accent-star); /* Section titles in accent star color */
+  text-shadow: 1px 1px 5px rgba(255, 218, 185, 0.4);
+}
+
+.welcome-section {
+  text-align: center;
+  padding: var(--padding-lg) var(--padding-md);
+  margin-bottom: var(--padding-lg);
+  background-image: linear-gradient(180deg, var(--color-primary-bg) 0%, #333C4E 100%); /* Subtle gradient */
+  width: 100%; /* Full width */
+}
+
+.welcome-section h1 {
+  font-size: 4.5rem; /* Larger welcome title */
+  margin-bottom: 1rem;
+  color: var(--color-accent-moon);
+  text-shadow: 0 0 15px rgba(178, 216, 216, 0.8);
+}
+
+.welcome-section .tagline {
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--padding-lg);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+.hero-image-container {
+    width: 90%; /* Responsive width for container */
+    max-width: 900px; /* Maximum width for the image */
+    height: 450px; /* Fixed height for consistency */
+    overflow: hidden; /* Hide overflowing parts of the image */
+    border-radius: 15px;
+    box-shadow: 0 10px 40px var(--color-shadow-dark);
+    margin: 0 auto;
+    border: 2px solid var(--color-accent-moon); /* Subtle border */
+}
+
+.hero-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    object-position: center; /* Centers the image within the container */
+    display: block;
+    margin: 0;
+    border-radius: 0; /* Reset border-radius from general img rule */
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger min width for cards */
+  gap: var(--gap-lg); /* More space between cards */
+  padding: 0 var(--padding-md);
+  width: 100%; /* Ensure grid takes full width of container */
+}
+
+.content-card {
+  background-color: var(--color-secondary-bg); /* Lighter card background */
+  color: var(--color-text-dark); /* Dark text on light background */
+  border-radius: 12px;
+  padding: var(--padding-sm);
+  box-shadow: 0 8px 30px var(--color-shadow-light);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Ensure nothing spills out */
+  border: 1px solid var(--color-border-subtle);
+}
+
+.content-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 12px 40px var(--color-shadow-dark);
+}
+
+.content-card h3 {
+  color: var(--color-button-primary); /* Card titles in a strong, readable color */
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem; /* Adjust top margin for card title */
+}
+
+.content-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem; /* More space before button */
+  flex-grow: 1;
+}
+
+.card-image-container {
+    width: 100%; /* Take full width of card */
+    height: 200px; /* Fixed height for consistency */
+    overflow: hidden;
+    border-radius: 8px; /* Rounded corners for card images */
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is key for fitting any image */
+    object-position: center; /* Centers the image within the container */
+    display: block;
+    margin: 0;
+    border-radius: 0; /* Reset border-radius from general img rule */
+}
+
+
+/* --- 5. Action Button Styles --- */
+.action-button {
+  background-color: var(--color-button-primary);
+  color: var(--color-text-light);
+  border: 2px solid var(--color-button-primary);
+  padding: 0.9rem 1.8rem;
+  border-radius: 30px; /* More rounded, pill-shaped */
+  cursor: pointer;
+  font-family: var(--font-family-button);
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.action-button:hover {
+  background-color: transparent;
+  color: var(--color-button-primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.action-button.primary-button {
+  background-color: var(--color-accent-moon);
+  border-color: var(--color-accent-moon);
+  color: var(--color-primary-bg);
+  box-shadow: 0 4px 20px rgba(178, 216, 216, 0.4);
+}
+
+.action-button.primary-button:hover {
+  background-color: var(--color-button-secondary); /* A warmer, inviting hover */
+  border-color: var(--color-button-secondary);
+  color: var(--color-text-light);
+  box-shadow: 0 4px 20px rgba(212, 163, 115, 0.6);
+}
+
+.action-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-sm); /* Spacing between buttons in a group */
+    margin-top: var(--padding-md);
+}
+
+/* --- 6. Narrative Detail Page (for Chapters/Stories) --- */
+.narrative-detail-page {
+  background-color: var(--color-secondary-bg); /* Light background for reading */
+  color: var(--color-text-dark); /* Dark text on light background */
+  padding: var(--padding-lg) var(--padding-md);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px var(--color-shadow-light);
+  text-align: left;
+  margin: var(--padding-lg) auto; /* Center the page */
+  width: 90%;
+  max-width: 900px; /* Optimal reading width */
+  border: 1px solid var(--color-border-subtle);
+}
+
+.narrative-detail-page .section-title {
+    text-align: left;
+    color: var(--color-button-primary); /* Title color for detail page */
+    margin-top: 0; /* Remove top margin */
+    font-size: 2.2rem;
+}
+
+.narrative-content {
+  margin-bottom: var(--padding-md);
+  overflow: hidden; /* To contain floats */
+}
+
+.content-image-wrapper {
+    float: right;
+    margin-left: var(--padding-md);
+    margin-bottom: var(--padding-md);
+    width: 45%; /* Proportion of text flow width */
+    max-height: 300px; /* Limit height of floated image */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-border-subtle);
+}
+
+.content-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover container while maintaining aspect ratio */
+    display: block;
+    margin: 0; /* Reset margins */
+    border-radius: 0; /* Reset border-radius from general img rule */
+}
+
+.narrative-detail-page p {
+    text-indent: 2em;
+    margin-bottom: 1.2em;
+    font-size: 1.15rem;
+    line-height: 1.8; /* Increased line height for readability */
+    color: var(--color-text-dark);
+}
+
+.narrative-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-md);
+  margin-top: var(--padding-lg);
+  flex-wrap: wrap;
+}
+
+/* --- 7. Footer Styles --- */
 .app-footer {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: var(--padding-base);
-    margin-top: auto; /* Push footer to the bottom */
-    font-size: 0.9em;
+  width: 100%;
+  text-align: center;
+  padding: var(--padding-sm) var(--padding-md);
+  margin-top: var(--padding-lg);
+  background-color: var(--color-primary-bg);
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--color-border-subtle);
+  box-shadow: 0 -2px 15px var(--color-shadow-dark);
 }
 
-/* Responsive Adjustments (Media Queries) */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-sm);
+    margin-top: 0.8rem;
+}
+
+.footer-links button {
+  background: none;
+  border: none;
+  color: var(--color-accent-moon); /* Footer links in accent moon color */
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.2rem 0.5rem;
+}
+
+.footer-links button:hover {
+  color: var(--color-accent-star);
+  text-decoration: underline;
+}
+
+
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .app-container {
+        max-width: 960px;
+    }
+    .welcome-section h1 {
+        font-size: 3.8rem;
+    }
+    .hero-image-container {
+        height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
-    .app-header h1 {
-        font-size: 1.8em;
-    }
+  :root {
+    --font-size-base: 1rem;
+    --padding-lg: 2rem;
+    --padding-md: 1.5rem;
+    --padding-sm: 1rem;
+  }
 
-    .main-nav ul {
-        flex-direction: column; /* Stack nav items vertically on smaller screens */
-        gap: 10px;
-    }
+  .app-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: var(--padding-sm);
+  }
+  .main-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-sm);
+  }
+  .nav-button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
 
-    .main-content {
-        padding: var(--padding-base) 10px; /* Less horizontal padding */
-        grid-template-columns: 1fr; /* Ensure single column */
-    }
+  .welcome-section h1 {
+    font-size: 3rem;
+  }
+  .welcome-section .tagline {
+    font-size: 1.2rem;
+  }
+  .hero-image-container {
+    height: 300px;
+    width: 95%;
+  }
+  .content-grid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    padding: 0 var(--padding-sm);
+  }
+  .content-card {
+    padding: 1rem;
+  }
+  .content-card h3 {
+    font-size: 1.6rem;
+  }
+  .card-image-container {
+      height: 180px;
+  }
 
-    .chapter-meta {
-        flex-direction: column; /* Stack meta info */
-        align-items: flex-start; /* Align meta items to start */
-    }
-
-    .read-aloud-button {
-        width: 100%; /* Full width button */
-        margin-top: 10px;
-    }
-
-    .chapter-navigation {
-        flex-direction: column; /* Stack nav buttons */
-    }
+  .narrative-detail-page {
+    padding: var(--padding-md) var(--padding-sm);
+    width: 95%;
+  }
+  .narrative-detail-page .section-title {
+      font-size: 1.8rem;
+  }
+  .content-image-wrapper {
+    float: none; /* Remove float on smaller screens */
+    width: 90%; /* Make image wider on small screens */
+    max-height: 250px;
+    margin: 1.5rem auto; /* Center image */
+  }
+  .narrative-detail-page p {
+      text-indent: 1.5em;
+      font-size: 1.05rem;
+      line-height: 1.7;
+  }
+  .narrative-actions .action-button {
+      width: calc(50% - var(--gap-sm)/2); /* Two buttons per row */
+      margin: 0.5rem 0; /* Adjust margin for wrap */
+  }
+  .action-buttons-group .action-button {
+     width: calc(50% - var(--gap-sm)/2);
+     margin: 0.5rem 0;
+  }
 }
 
 @media (max-width: 480px) {
-    :root {
-        --padding-base: 15px;
-    }
-
-    .app-header h1 {
-        font-size: 1.5em;
-    }
-
-    .chapter-content h2 {
-        font-size: 1.5em;
-    }
-
-    .chapter-content h3 {
-        font-size: 1.2em;
-    }
-
-    .chapter-body {
-        font-size: 1em;
-    }
+  .app-header {
+    padding: 0.8rem 1rem;
+  }
+  .app-logo {
+    font-size: 1.6rem;
+  }
+  .main-nav ul {
+    gap: 0.8rem;
+  }
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .welcome-section h1 {
+    font-size: 2.5rem;
+  }
+  .welcome-section .tagline {
+    font-size: 1rem;
+  }
+  .hero-image-container {
+      height: 200px;
+  }
+  .content-card h3 {
+    font-size: 1.4rem;
+  }
+  .narrative-detail-page p {
+      font-size: 1rem;
+  }
+  .action-button {
+      width: calc(100% - var(--gap-sm)/2); /* One button per row */
+  }
+  .action-buttons-group .action-button {
+      width: calc(100% - var(--gap-sm)/2);
+  }
 }

@@ -1,91 +1,140 @@
 // frontend/src/App.jsx
-import React from 'react';
-import './App.css'; // We'll create this file next for global styles
+import './App.css'; // Keep this import at the top
 
 function App() {
   return (
     <div className="app-container">
       {/* Header Section */}
       <header className="app-header">
-        <h1>The Moons</h1>
+        <div className="logo-placeholder">
+          {/* Placeholder for your actual logo image */}
+          <img src="https://via.placeholder.com/80x80/2A2F4F/F0EEF5?text=LOGO" alt="The Moons Logo" />
+        </div>
         <nav className="main-nav">
           <ul>
-            <li><a href="#novels">Novels</a></li>
-            <li><a href="#short-stories">Short Stories</a></li>
-            <li><a href="#poems">Poems</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#login">Login (Author)</a></li>
+            <li><button className="nav-button">Novels</button></li>
+            <li><button className="nav-button">Short Stories</button></li>
+            <li><button className="nav-button">Poems</button></li>
+            <li><button className="nav-button">About</button></li>
+            <li><button className="nav-button nav-auth-button">Author Login</button></li>
           </ul>
         </nav>
       </header>
 
-      {/* Main Content Area - This is where our static story page will go */}
-      <main className="main-content">
-        {/* Placeholder for a single Novel Chapter */}
-        <section className="novel-chapter-page">
-          <article className="chapter-content">
-            <h2>Novel Title: The Whispering Sands</h2>
-            <h3>Chapter 1: Echoes of a Distant Past</h3>
-            <div className="chapter-meta">
-              <p>By Kaspar Moon | Published: July 6, 2025</p>
-              <button className="read-aloud-button">READ ALOUD</button>
-            </div>
-            <div className="chapter-body">
-              <p>The desert wind whispered tales of ancient empires, carrying grains of sand that were once monumental cities. Elara, with eyes the color of twilight, traced the faded symbols on the crumbling obelisk. Each swirling line spoke of a magic long forgotten, a power now buried beneath shifting dunes. Her fingers, calloused from years of archaeological digs, trembled slightly.</p>
-              <img src="https://via.placeholder.com/600x400?text=Chapter+Visual+1" alt="Ancient obelisk in a desert" className="chapter-image"/>
-              <p>She remembered her grandmother's stories – legends of the Sunstone, a relic said to hold the very essence of creation. Most dismissed them as mere folklore, bedtime tales spun by eccentric elders. But Elara knew. She felt it in the hum of the air, the faint tremor of the earth beneath her feet. The desert was alive with secrets, and she was closer than anyone had ever been to unearthing its greatest.</p>
-              <img src="https://via.placeholder.com/600x350?text=Chapter+Visual+2" alt="Elara tracing symbols" className="chapter-image"/>
-              <p>A sudden gust of wind whipped her scarf across her face, momentarily blinding her. When she pulled it away, a shimmering anomaly pulsed at the base of the obelisk – a distortion in the air, like heat haze, but too focused, too deliberate. Her heart pounded. This was it. The door to the past, revealed.</p>
-            </div>
-            <div className="chapter-navigation">
-              <button className="nav-button prev">Previous Chapter</button>
-              <button className="nav-button next">Next Chapter</button>
-            </div>
-          </article>
-        </section>
+      {/* Main Welcome Section */}
+      <section className="welcome-section">
+        <h1>Welcome to The Moons</h1>
+        <p className="tagline">Your sanctuary for enchanting narratives, chapter by chapter.</p>
+        <div className="hero-image-container">
+          <img
+            src="https://images.unsplash.com/photo-1499750310107-5fcd6f4fd026?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80"
+            alt="Open book with light"
+            className="hero-image"
+          />
+        </div>
+      </section>
 
-        {/* Placeholder for a single Short Story - Hidden for now, but structure is there */}
-        {/* <section className="short-story-page" style={{ display: 'none' }}>
-          <article className="story-content">
-            <h2>The Last Starlit Seed</h2>
-            <div className="story-meta">
-              <p>By Kaspar Moon | Published: June 15, 2025</p>
-              <button className="read-aloud-button">READ ALOUD</button>
+      {/* Featured Novels Section */}
+      <section className="content-section">
+        <h2 className="section-title">Featured Novels</h2>
+        <div className="content-grid">
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1533109721273-e3805367611a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mysterious forest entrance" />
             </div>
-            <div className="story-body">
-              <p>In a cosmos where stars had long faded, only one seed remained, glowing faintly with the memory of a trillion suns. Kael, the last gardener, tended it on his desolate asteroid, whispering tales of light to its dormant core...</p>
-              <img src="https://via.placeholder.com/600x400?text=Story+Visual" alt="Last starlit seed" className="story-image"/>
-              <p>His hands, gnarled by solitude and cosmic dust, had coaxed life from barren rock for centuries. The seed pulsed, a faint echo of hope in the eternal night. He knew, with the quiet certainty of deep space, that his life's purpose was not merely to protect, but to awaken.</p>
+            <h3>The Whispering Woods</h3>
+            <p>A thrilling adventure set in a mystical forest. Follow Elara as she uncovers ancient secrets.</p>
+            <button className="action-button">Read Novel</button>
+          </div>
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1502101683935-d2279f041ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Starry night sky" />
             </div>
-          </article>
-        </section> */}
+            <h3>Echoes of Starlight</h3>
+            <p>A poetic journey through the cosmos, exploring themes of time, love, and destiny.</p>
+            <button className="action-button">Read Novel</button>
+          </div>
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1510511459418-500b1a604245?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient scroll" />
+            </div>
+            <h3>The Scroll of Aethel</h3>
+            <p>An ancient prophecy hidden in forgotten texts, waiting to be deciphered by a lone scholar.</p>
+            <button className="action-button">Read Novel</button>
+          </div>
+        </div>
+      </section>
 
-        {/* Placeholder for a single Poem - Hidden for now, but structure is there */}
-        {/* <section className="poem-page" style={{ display: 'none' }}>
-          <article className="poem-content">
-            <h2>Whispers of the Moon</h2>
-            <div className="poem-meta">
-              <p>By Kaspar Moon | Published: May 1, 2025</p>
-              <button className="read-aloud-button">READ ALOUD</button>
+      {/* Sample Short Story / Chapter Page (with Read Aloud Button) */}
+      <section className="content-section narrative-detail-page">
+        <h2 className="section-title">A Glimpse into "The Midnight Lantern" - Chapter 1</h2>
+        <div className="narrative-content">
+          <div className="content-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1507646197170-c75c8ee0c63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Old lantern in the dark"
+              className="content-image"
+            />
+          </div>
+          <p>The old lantern flickered, casting long, dancing shadows across the dusty cobblestones. Elias shivered, not from the chill of the midnight air, but from the weight of the silence. It was the kind of silence that pressed in on you, that whispered secrets only the night could hear.</p>
+          <p>He adjusted the worn leather satchel on his shoulder, its familiar weight a small comfort against the encroaching dread. The map, crinkled and faded, promised a hidden path, a shortcut through the forgotten district. But every rustle of leaves, every distant howl, seemed to question its wisdom. He gripped the lantern tighter, its frail light his only companion in a world that felt suddenly, terrifyingly vast.</p>
+          <p>A low, guttural growl echoed from the alley to his left. Elias froze, his breath catching in his throat. The lantern's beam trembled, casting the alley in stark contrasts of light and impenetrable shadow. He knew he should run, but his feet felt rooted to the cold stone. This wasn't just silence; it was the hush before the storm.</p>
+        </div>
+        <div className="narrative-actions">
+          <button className="action-button primary-button">READ ALOUD</button>
+          <button className="action-button">Next Chapter</button>
+          <button className="action-button">Share</button>
+        </div>
+      </section>
+
+      {/* Recent Poems Section */}
+      <section className="content-section">
+        <h2 className="section-title">Recent Poems</h2>
+        <div className="content-grid">
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1502691455320-b0b2e2d989f6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Moonlight reflection on water" />
             </div>
-            <div className="poem-body">
-              <p>Silver orb, a watchful eye,</p>
-              <p>Across the velvet, star-strewn sky.</p>
-              <p>You pull the tides, and dreams untold,</p>
-              <p>A story whispered, brave and old.</p>
-              <br/>
-              <p>Through silent nights, your gentle gleam,</p>
-              <p>Invites the artist's waking dream.</p>
-              <p>A muse for poets, hearts on fire,</p>
-              <p>Reflecting hope, a soft desire.</p>
+            <h3>Moonlit Serenade</h3>
+            <p>"Silent whispers, silver gleam, / A dream spun from a lunar beam."</p>
+            <button className="action-button">Read Poem</button>
+          </div>
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1587391993427-0c7f70b4a4d6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wind-swept grass" />
             </div>
-          </article>
-        </section> */}
-      </main>
+            <h3>Whispers of the Wind</h3>
+            <p>"Through ancient trees, a gentle sigh, / Tales of ages, whispered high."</p>
+            <button className="action-button">Read Poem</button>
+          </div>
+          <div className="content-card">
+            <div className="card-image-container">
+              <img src="https://images.unsplash.com/photo-1507207611502-f312d837651a?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ink and quill" />
+            </div>
+            <h3>The Ink's Embrace</h3>
+            <p>"A lonely quill, a silent page, / Unfolding worlds, a wisdom's stage."</p>
+            <button className="action-button">Read Poem</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action for Authors/Readers */}
+      <section className="call-to-action-section">
+        <h2>Join The Moons Community</h2>
+        <p>Embark on your own narrative journey. Share your voice, or discover new worlds.</p>
+        <div className="action-buttons-group">
+          <button className="action-button primary-button">Become an Author</button>
+          <button className="action-button">Start Reading Now</button>
+        </div>
+      </section>
 
       {/* Footer Section */}
       <footer className="app-footer">
-        <p>&copy; 2025 The Moons. All rights reserved by Kaspar Moon.</p>
+        <p>&copy; 2025 The Moons Narrative Hub. All rights reserved.</p>
+        <div className="footer-links">
+          <button className="footer-button">Privacy Policy</button>
+          <button className="footer-button">Terms of Service</button>
+        </div>
       </footer>
     </div>
   );
