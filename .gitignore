@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+*.egg-info/
+.pytest_cache/
+htmlcov/
+.env
+.DS_Store # macOS specific
+.vscode/ # VS Code specific settings that you might not want to share
