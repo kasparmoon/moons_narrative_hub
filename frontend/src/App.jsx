@@ -1,4 +1,4 @@
-// frontend/src/App.jsx
+// frontend/src/App.jsx - Completely Reworked for Wide, Medium-Light, Aesthetic Design
 import './App.css'; // Keep this import at the top
 
 function App() {
@@ -6,134 +6,117 @@ function App() {
     <div className="app-container">
       {/* Header Section */}
       <header className="app-header">
-        <div className="logo-placeholder">
-          {/* Placeholder for your actual logo image */}
-          <img src="https://via.placeholder.com/80x80/2A2F4F/F0EEF5?text=LOGO" alt="The Moons Logo" />
+        <div className="header-inner">
+          <div className="logo-section">
+            {/* Placeholder for your actual logo image */}
+            <img src="https://via.placeholder.com/120x50/F8F8F8/4A4E69?text=THE+MOONS" alt="The Moons Logo" className="app-logo-img" />
+          </div>
+          <nav className="main-nav">
+            <ul>
+              <li><button className="nav-button">Novels</button></li>
+              <li><button className="nav-button">Short Stories</button></li>
+              <li><button className="nav-button">Poems</button></li>
+              <li><button className="nav-button">About</button></li>
+              <li><button className="nav-button auth-button">Author Login</button></li>
+            </ul>
+          </nav>
         </div>
-        <nav className="main-nav">
-          <ul>
-            <li><button className="nav-button">Novels</button></li>
-            <li><button className="nav-button">Short Stories</button></li>
-            <li><button className="nav-button">Poems</button></li>
-            <li><button className="nav-button">About</button></li>
-            <li><button className="nav-button nav-auth-button">Author Login</button></li>
-          </ul>
-        </nav>
       </header>
 
-      {/* Main Welcome Section */}
-      <section className="welcome-section">
-        <h1>Welcome to The Moons</h1>
-        <p className="tagline">Your sanctuary for enchanting narratives, chapter by chapter.</p>
-        <div className="hero-image-container">
-          <img
-            src="https://images.unsplash.com/photo-1499750310107-5fcd6f4fd026?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80"
-            alt="Open book with light"
-            className="hero-image"
-          />
+      {/* Main Hero / Welcome Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>Welcome to The Moons</h1>
+          <p className="hero-tagline">
+            Your sanctuary for enchanting narratives, chapter by chapter.
+            Dive into worlds where stories breathe and imaginations soar.
+          </p>
+          <div className="hero-buttons">
+            <button className="action-button primary-button">Explore Narratives</button>
+            <button className="action-button secondary-button">Become an Author</button>
+          </div>
         </div>
       </section>
 
-      {/* Featured Novels Section */}
-      <section className="content-section">
-        <h2 className="section-title">Featured Novels</h2>
+      {/* Featured Content Section */}
+      <section className="featured-content-section section-padding">
+        <h2 className="section-heading">Featured Narratives</h2>
         <div className="content-grid">
+          {/* Featured Novel 1 */}
           <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1533109721273-e3805367611a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Mysterious forest entrance" />
+            <div className="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1510511459418-500b1a604245?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient Scroll" />
             </div>
-            <h3>The Whispering Woods</h3>
-            <p>A thrilling adventure set in a mystical forest. Follow Elara as she uncovers ancient secrets.</p>
-            <button className="action-button">Read Novel</button>
+            <h3>The Chronicles of Eldoria</h3>
+            <p className="card-excerpt">Embark on an epic saga of magic, kingdoms, and an ancient prophecy that binds them all.</p>
+            <div className="card-actions">
+              <button className="action-button read-button">Read Novel</button>
+              <button className="action-button mini-button">Chapter 1</button>
+            </div>
           </div>
+
+          {/* Featured Short Story */}
           <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1502101683935-d2279f041ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Starry night sky" />
+            <div className="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1507646197170-c75c8ee0c63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Old Lantern" />
             </div>
-            <h3>Echoes of Starlight</h3>
-            <p>A poetic journey through the cosmos, exploring themes of time, love, and destiny.</p>
-            <button className="action-button">Read Novel</button>
+            <h3>Whispers in the Alley</h3>
+            <p className="card-excerpt">A chilling tale of a detective's last case, unraveling secrets hidden in the city's dark corners.</p>
+            <div className="card-actions">
+              <button className="action-button read-button primary-button">Read Story</button>
+              <button className="action-button mini-button">Share</button>
+            </div>
           </div>
+
+          {/* Featured Poem */}
           <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1510511459418-500b1a604245?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient scroll" />
+            <div className="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1502691455320-b0b2e2d989f6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Moonlit Water" />
             </div>
-            <h3>The Scroll of Aethel</h3>
-            <p>An ancient prophecy hidden in forgotten texts, waiting to be deciphered by a lone scholar.</p>
-            <button className="action-button">Read Novel</button>
+            <h3>Lunar Lament</h3>
+            <p className="card-excerpt">A profound poem reflecting on the silent beauty and enduring mystery of the moon.</p>
+            <div className="card-actions">
+              <button className="action-button read-button">Read Poem</button>
+              <button className="action-button mini-button">Listen</button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sample Short Story / Chapter Page (with Read Aloud Button) */}
-      <section className="content-section narrative-detail-page">
-        <h2 className="section-title">A Glimpse into "The Midnight Lantern" - Chapter 1</h2>
-        <div className="narrative-content">
-          <div className="content-image-wrapper">
-            <img
-              src="https://images.unsplash.com/photo-1507646197170-c75c8ee0c63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Old lantern in the dark"
-              className="content-image"
-            />
-          </div>
-          <p>The old lantern flickered, casting long, dancing shadows across the dusty cobblestones. Elias shivered, not from the chill of the midnight air, but from the weight of the silence. It was the kind of silence that pressed in on you, that whispered secrets only the night could hear.</p>
-          <p>He adjusted the worn leather satchel on his shoulder, its familiar weight a small comfort against the encroaching dread. The map, crinkled and faded, promised a hidden path, a shortcut through the forgotten district. But every rustle of leaves, every distant howl, seemed to question its wisdom. He gripped the lantern tighter, its frail light his only companion in a world that felt suddenly, terrifyingly vast.</p>
-          <p>A low, guttural growl echoed from the alley to his left. Elias froze, his breath catching in his throat. The lantern's beam trembled, casting the alley in stark contrasts of light and impenetrable shadow. He knew he should run, but his feet felt rooted to the cold stone. This wasn't just silence; it was the hush before the storm.</p>
+      {/* About The Moons Section */}
+      <section className="about-section section-padding">
+        <div className="about-content">
+          <h2 className="section-heading">About The Moons</h2>
+          <p>
+            "The Moons" is more than just a platform; it's a vibrant community where stories are born and celebrated. We believe in the power of words to transport, inspire, and connect. Our mission is to provide authors with a beautiful space to share their serialized novels, captivating short stories, and soulful poems, while offering readers an immersive and accessible journey into new worlds.
+          </p>
+          <button className="action-button primary-button">Learn More About Us</button>
         </div>
-        <div className="narrative-actions">
-          <button className="action-button primary-button">READ ALOUD</button>
-          <button className="action-button">Next Chapter</button>
-          <button className="action-button">Share</button>
-        </div>
-      </section>
-
-      {/* Recent Poems Section */}
-      <section className="content-section">
-        <h2 className="section-title">Recent Poems</h2>
-        <div className="content-grid">
-          <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1502691455320-b0b2e2d989f6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Moonlight reflection on water" />
-            </div>
-            <h3>Moonlit Serenade</h3>
-            <p>"Silent whispers, silver gleam, / A dream spun from a lunar beam."</p>
-            <button className="action-button">Read Poem</button>
-          </div>
-          <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1587391993427-0c7f70b4a4d6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wind-swept grass" />
-            </div>
-            <h3>Whispers of the Wind</h3>
-            <p>"Through ancient trees, a gentle sigh, / Tales of ages, whispered high."</p>
-            <button className="action-button">Read Poem</button>
-          </div>
-          <div className="content-card">
-            <div className="card-image-container">
-              <img src="https://images.unsplash.com/photo-1507207611502-f312d837651a?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ink and quill" />
-            </div>
-            <h3>The Ink's Embrace</h3>
-            <p>"A lonely quill, a silent page, / Unfolding worlds, a wisdom's stage."</p>
-            <button className="action-button">Read Poem</button>
-          </div>
+        <div className="about-image-container">
+          <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Open notebook and pen" />
         </div>
       </section>
 
       {/* Call to Action for Authors/Readers */}
-      <section className="call-to-action-section">
-        <h2>Join The Moons Community</h2>
-        <p>Embark on your own narrative journey. Share your voice, or discover new worlds.</p>
-        <div className="action-buttons-group">
-          <button className="action-button primary-button">Become an Author</button>
-          <button className="action-button">Start Reading Now</button>
+      <section className="cta-section section-padding">
+        <h2 className="section-heading cta-heading">Ready to Begin Your Story?</h2>
+        <p className="cta-tagline">
+          Whether you seek to share your narratives or get lost in new literary adventures, The Moons awaits.
+        </p>
+        <div className="cta-buttons">
+          <button className="action-button primary-button">Become an Author Today</button>
+          <button className="action-button secondary-button">Start Reading Now</button>
         </div>
       </section>
 
       {/* Footer Section */}
       <footer className="app-footer">
-        <p>&copy; 2025 The Moons Narrative Hub. All rights reserved.</p>
-        <div className="footer-links">
-          <button className="footer-button">Privacy Policy</button>
-          <button className="footer-button">Terms of Service</button>
+        <div className="footer-content">
+          <p>&copy; 2025 The Moons Narrative Hub. All rights reserved.</p>
+          <div className="footer-links">
+            <button className="footer-link-button">Privacy Policy</button>
+            <button className="footer-link-button">Terms of Service</button>
+          </div>
         </div>
       </footer>
     </div>
