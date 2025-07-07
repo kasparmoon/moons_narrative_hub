@@ -1,121 +1,207 @@
-// frontend/src/App.jsx - Completely Reworked for Wide, Medium-Light, Aesthetic Design
+// frontend/src/App.jsx - Image Fixes & Vibrant Yellow Palette
 import './App.css'; // Keep this import at the top
 
 function App() {
   return (
     <div className="app-container">
-      {/* Header Section */}
+      {/* Header Section - Inspired by National Geographic */}
       <header className="app-header">
-        <div className="header-inner">
-          <div className="logo-section">
-            {/* Placeholder for your actual logo image */}
-            <img src="https://via.placeholder.com/120x50/F8F8F8/4A4E69?text=THE+MOONS" alt="The Moons Logo" className="app-logo-img" />
+        <div className="header-content-wrapper">
+          <div className="logo-area">
+            {/* Placeholder for your actual logo. NatGeo style is text-based. */}
+            <span className="app-logo-text">THE MOONS</span>
           </div>
           <nav className="main-nav">
             <ul>
-              <li><button className="nav-button">Novels</button></li>
-              <li><button className="nav-button">Short Stories</button></li>
-              <li><button className="nav-button">Poems</button></li>
-              <li><button className="nav-button">About</button></li>
-              <li><button className="nav-button auth-button">Author Login</button></li>
+              <li><button className="nav-link-button">Novels</button></li>
+              <li><button className="nav-link-button">Short Stories</button></li>
+              <li><button className="nav-link-button">Poems</button></li>
+              <li><button className="nav-link-button">About</button></li>
+              {/* Auth button on the right, similar to NatGeo subscribe */}
+              <li className="auth-button-item"><button className="nav-auth-button">Author Login</button></li>
             </ul>
           </nav>
+          {/* Mobile menu toggle will go here later */}
         </div>
       </header>
 
-      {/* Main Hero / Welcome Section */}
+      {/* Hero/Welcome Section - Dynamic Featured "Article" style */}
       <section className="hero-section">
-        <div className="hero-content">
-          <h1>Welcome to The Moons</h1>
-          <p className="hero-tagline">
-            Your sanctuary for enchanting narratives, chapter by chapter.
-            Dive into worlds where stories breathe and imaginations soar.
+        <div className="hero-inner-content">
+          <div className="hero-meta">
+            <span className="hero-category">LATEST NARRATIVE</span>
+          </div>
+          <h1 className="hero-title">The Serpent's Coil: Chapter One</h1>
+          <p className="hero-excerpt">
+            A thrilling new novel begins its journey. Follow Elara as she uncovers ancient secrets
+            hidden deep within the Whispering Woods, a place shrouded in myth and peril.
+            Prepare to be drawn into a world where magic breathes and shadows whisper.
           </p>
-          <div className="hero-buttons">
-            <button className="action-button primary-button">Explore Narratives</button>
-            <button className="action-button secondary-button">Become an Author</button>
+          <div className="hero-action-buttons">
+            <button className="action-button primary-action-button">READ CHAPTER</button>
+            <button className="action-button secondary-action-button">EXPLORE NOVEL</button>
           </div>
         </div>
       </section>
 
-      {/* Featured Content Section */}
-      <section className="featured-content-section section-padding">
-        <h2 className="section-heading">Featured Narratives</h2>
+      {/* Featured Content Grid - Inspired by NatGeo Article Grid */}
+      <section className="featured-grid-section">
+        <h2 className="section-heading">Featured Stories & Poems</h2>
         <div className="content-grid">
-          {/* Featured Novel 1 */}
+          {/* Content Card 1 (Novel Excerpt/Chapter) */}
           <div className="content-card">
             <div className="card-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1510511459418-500b1a604245?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient Scroll" />
+              <img src="https://images.unsplash.com/photo-1599495054627-35ad07218a46?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Person writing in a notebook" />
             </div>
-            <h3>The Chronicles of Eldoria</h3>
-            <p className="card-excerpt">Embark on an epic saga of magic, kingdoms, and an ancient prophecy that binds them all.</p>
-            <div className="card-actions">
-              <button className="action-button read-button">Read Novel</button>
-              <button className="action-button mini-button">Chapter 1</button>
+            <div className="card-body">
+              <span className="card-category">NOVEL CHAPTER</span>
+              <h3 className="card-title">Echoes of Starlight: Epilogue</h3>
+              <p className="card-excerpt">
+                The final chapter unfolds, tying loose ends and revealing the ultimate fate of the celestial wanderers.
+              </p>
+              <button className="action-button card-read-button">READ</button>
             </div>
           </div>
 
-          {/* Featured Short Story */}
+          {/* Content Card 2 (Short Story) */}
           <div className="content-card">
             <div className="card-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1507646197170-c75c8ee0c63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Old Lantern" />
+              <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Empty beach at sunset" />
             </div>
-            <h3>Whispers in the Alley</h3>
-            <p className="card-excerpt">A chilling tale of a detective's last case, unraveling secrets hidden in the city's dark corners.</p>
-            <div className="card-actions">
-              <button className="action-button read-button primary-button">Read Story</button>
-              <button className="action-button mini-button">Share</button>
+            <div className="card-body">
+              <span className="card-category">SHORT STORY</span>
+              <h3 className="card-title">The Solitude of the Shore</h3>
+              <p className="card-excerpt">
+                A poignant narrative exploring themes of loss, healing, and the enduring power of nature.
+              </p>
+              <button className="action-button card-read-button">READ</button>
             </div>
           </div>
 
-          {/* Featured Poem */}
+          {/* Content Card 3 (Poem) */}
           <div className="content-card">
             <div className="card-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1502691455320-b0b2e2d989f6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Moonlit Water" />
+              <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ink pen and paper" />
             </div>
-            <h3>Lunar Lament</h3>
-            <p className="card-excerpt">A profound poem reflecting on the silent beauty and enduring mystery of the moon.</p>
-            <div className="card-actions">
-              <button className="action-button read-button">Read Poem</button>
-              <button className="action-button mini-button">Listen</button>
+            <div className="card-body">
+              <span className="card-category">POEM</span>
+              <h3 className="card-title">Ode to the Silent Moon</h3>
+              <p className="card-excerpt">
+                A lyrical exploration of the moon's timeless vigil and its gentle influence on earthly dreams.
+              </p>
+              <button className="action-button card-read-button">READ</button>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* About The Moons Section */}
-      <section className="about-section section-padding">
-        <div className="about-content">
-          <h2 className="section-heading">About The Moons</h2>
-          <p>
-            "The Moons" is more than just a platform; it's a vibrant community where stories are born and celebrated. We believe in the power of words to transport, inspire, and connect. Our mission is to provide authors with a beautiful space to share their serialized novels, captivating short stories, and soulful poems, while offering readers an immersive and accessible journey into new worlds.
-          </p>
-          <button className="action-button primary-button">Learn More About Us</button>
-        </div>
-        <div className="about-image-container">
-          <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Open notebook and pen" />
-        </div>
-      </section>
+          {/* Content Card 4 (Short Story) */}
+          <div className="content-card">
+            <div className="card-image-wrapper">
+              <img src="https://plus.unsplash.com/premium_photo-1669613233573-4911a0a81c63?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Foggy forest" />
+            </div>
+            <div className="card-body">
+              <span className="card-category">SHORT STORY</span>
+              <h3 className="card-title">The Shadow in the Pines</h3>
+              <p className="card-excerpt">
+                A mysterious encounter deep within a fog-laden forest challenges the very nature of reality.
+              </p>
+              <button className="action-button card-read-button">READ</button>
+            </div>
+          </div>
 
-      {/* Call to Action for Authors/Readers */}
-      <section className="cta-section section-padding">
-        <h2 className="section-heading cta-heading">Ready to Begin Your Story?</h2>
+          {/* Content Card 5 (Novel Excerpt/Chapter) */}
+          <div className="content-card">
+            <div className="card-image-wrapper">
+              <img src="https://images.unsplash.com/photo-1694253609637-50419bd47076?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient door in rocks" />
+            </div>
+            <div className="card-body">
+              <span className="card-category">NOVEL CHAPTER</span>
+              <h3 className="card-title">The Forgotten City: Chapter 3</h3>
+              <p className="card-excerpt">
+                Our heroes delve deeper into the ruins, discovering ancient mechanisms and unforeseen dangers.
+              </p>
+              <button className="action-button card-read-button">READ</button>
+            </div>
+          </div>
+
+          {/* Content Card 6 (Poem) */}
+          <div className="content-card">
+            <div className="card-image-wrapper">
+              <img src="https://plus.unsplash.com/premium_photo-1673254850380-ff70514979fe?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Aurora Borealis" />
+            </div>
+            <div className="card-body">
+              <span className="card-category">POEM</span>
+              <h3 className="card-title">Celestial Dance</h3>
+              <p className="card-excerpt">
+                A vibrant verse painting the spectacle of the northern lights, a ballet of cosmic hues.
+              </p>
+              <button className="action-button card-read-button">READ</button>
+            </div>
+          </div>
+
+        </div> {/* End content-grid */}
+      </section> {/* End featured-grid-section */}
+
+      {/* Call to Action Section - Clean & Direct */}
+      <section className="cta-section">
+        <h2 className="section-heading cta-heading">Ready to Start Your Narrative Journey?</h2>
         <p className="cta-tagline">
-          Whether you seek to share your narratives or get lost in new literary adventures, The Moons awaits.
+          Whether you seek to share your own captivating narratives or get lost in new literary adventures, The Moons awaits.
         </p>
         <div className="cta-buttons">
-          <button className="action-button primary-button">Become an Author Today</button>
-          <button className="action-button secondary-button">Start Reading Now</button>
+          <button className="action-button primary-action-button">Become an Author Today</button>
+          <button className="action-button secondary-action-button">Start Reading Now</button>
         </div>
       </section>
 
-      {/* Footer Section */}
+      {/* Footer Section - Inspired by Shut Up & Write! */}
       <footer className="app-footer">
-        <div className="footer-content">
-          <p>&copy; 2025 The Moons Narrative Hub. All rights reserved.</p>
-          <div className="footer-links">
-            <button className="footer-link-button">Privacy Policy</button>
-            <button className="footer-link-button">Terms of Service</button>
+        <div className="footer-top-row">
+          <div className="footer-logo-area">
+            {/* Placeholder for footer logo. Using a verified placeholder image from placehold.co */}
+            <img src="https://placehold.co/100x100/4A4E69/F2D27A?text=The%20MOONS" alt="Footer Logo" className="footer-logo-img" />
+          </div>
+          <div className="footer-column">
+            <h4 className="footer-column-title">Contact Us</h4>
+            <p>2261 Market Street, #4978</p>
+            <p>Schenectady, NY 12301</p>
+            <div className="social-icons">
+              {/* Replaced text with Font Awesome placeholder icons */}
+              <a href="#" className="social-icon" aria-label="Facebook">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" className="social-icon" aria-label="Instagram">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="#" className="social-icon" aria-label="Twitter">
+                <i className="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+          <div className="footer-column">
+            <h4 className="footer-column-title">Resources</h4>
+            <ul>
+              <li><button className="footer-link-button">Become an Author</button></li>
+              <li><button className="footer-link-button">Support Forum</button></li>
+              <li><button className="footer-link-button">About Us</button></li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h4 className="footer-column-title">Support</h4>
+            <ul>
+              <li><button className="footer-link-button">FAQ</button></li>
+              <li><button className="footer-link-button">Reading Guide</button></li>
+              <li><button className="footer-link-button">Community Guidelines</button></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom-row">
+          <p>Copyright &copy; 2025 The Moons. All rights reserved.</p>
+          <div className="footer-legal-links">
+            {/* NEW: Wrap these two buttons in a div for better flex control */}
+            <div className="legal-links-wrapper">
+              <button className="footer-link-button footer-link-small">Terms of Service</button>
+              <button className="footer-link-button footer-link-small">Privacy Policy</button>
+            </div>
           </div>
         </div>
       </footer>

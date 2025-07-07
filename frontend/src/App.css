@@ -1,28 +1,31 @@
-/* frontend/src/App.css - Aesthetic, Wide, Medium-Light Design */
+/* frontend/src/App.css - Consolidated, Corrected, and Finalized Design */
 
 /* --- 1. Color Palette & Global Variables --- */
 :root {
-  /* Primary Colors */
-  --color-bg-lightest: #F8F4EF;     /* Very soft off-white, paper-like */
-  --color-bg-light: #EBE5DB;        /* Slightly deeper warm beige */
-  --color-bg-medium: #D1CCC0;       /* Medium warm gray for subtle sections */
-  --color-bg-dark: #3A3F5B;         /* Deep indigo for strong contrast elements */
+  /* Primary Colors - Lighter, more vibrant, with deep yellow */
+  --color-primary-bg: #F8F8F8;        /* Very light, almost white background */
+  --color-secondary-bg: #F0F0E0;      /* Soft, warm light yellow/beige for sections */
+  --color-tertiary-bg: #333333;       /* Dark charcoal for strong contrast */
+  --color-footer-bg: #F2D27A;         /* **Vibrant, real deep yellow for footer** */
+  --color-footer-dark-text: #4A4E69;  /* Dark indigo for text on footer */
+  --color-footer-sub-text: #6B778D;   /* Muted indigo for secondary footer text */
 
   /* Text Colors */
-  --color-text-dark: #2C2F4F;       /* Very dark indigo for main text on light background */
-  --color-text-light: #F8F4EF;      /* Light text on dark background */
-  --color-text-muted: #6A6E8C;      /* Muted gray for secondary text */
+  --color-text-dark: #2A2F4F;         /* Deep indigo for primary text */
+  --color-text-light: #F8F8F8;        /* Light text on dark backgrounds */
+  --color-text-muted: #6A6E8C;        /* Muted gray for secondary text */
 
-  /* Accent Colors */
-  --color-accent-gold: #B8860B;     /* Rich, sophisticated gold */
-  --color-accent-teal: #40B4B4;     /* Calming teal for highlights */
-  --color-accent-rose: #E87A90;     /* Soft, inviting rose for interactive elements */
-  --color-accent-button-hover: #5A5F8D; /* Darker indigo for button hover */
+  /* Accent Colors - Adjusted for yellow focus */
+  --color-accent-yellow: #DAA520;     /* **Deep, rich golden yellow for primary buttons/highlights** */
+  --color-accent-teal: #40B4B4;       /* Calming teal for secondary highlights */
+  --color-accent-black: #000000;      /* **Black for button hovers** */
+  --color-accent-light-yellow-hover: #FFF3CD; /* Light yellow for nav hover */
 
-  /* Fonts - Ensure these are loaded from Google Fonts in index.html */
+  /* Fonts - Google Fonts, loaded in index.html */
   --font-family-heading: 'Playfair Display', serif; /* Elegant, readable serif for titles */
   --font-family-body: 'Lora', serif; /* Classic, highly readable serif for body text */
-  --font-family-button: 'Roboto', sans-serif; /* Clean sans-serif for buttons */
+  --font-family-card-category: 'Roboto Condensed', sans-serif; /* Condensed for categories */
+  --font-family-button: 'Roboto', sans-serif; /* Modern sans-serif for buttons */
 
   /* Spacing Units */
   --space-xl: 6rem;
@@ -30,13 +33,13 @@
   --space-md: 2.5rem;
   --space-sm: 1.5rem;
   --space-xs: 1rem;
-  --gap-md: 1.5rem;
-  --gap-sm: 0.8rem;
+  --gap-md: 2rem;
+  --gap-sm: 1rem;
 }
 
 /* --- 2. Base Styles & Resets --- */
 * {
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-sizing: border-box;
 }
 
 html {
@@ -47,14 +50,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-family-body);
-  line-height: 1.75; /* Optimal line height for readability */
-  color: var(--color-text-dark); /* Default text color */
-  background-color: var(--color-bg-lightest); /* Main light background */
+  line-height: 1.7; /* Optimal line height for readability */
+  color: var(--color-text-dark); /* Default text color is dark */
+  background-color: var(--color-primary-bg); /* Main light background */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Global Image Styles */
@@ -68,73 +69,67 @@ img {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   color: var(--color-text-dark);
-  line-height: 1.2;
+  line-height: 1.15;
   margin-top: var(--space-sm);
   margin-bottom: var(--space-xs);
   text-align: center; /* Default center align for general headings */
 }
 
-h1 { font-size: 4.8rem; color: var(--color-accent-gold); text-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
-h2 { font-size: 3.2rem; margin-top: var(--space-lg); margin-bottom: var(--space-md); color: var(--color-accent-teal); }
-h3 { font-size: 2.2rem; }
+h1 { font-size: 3.8rem; color: var(--color-text-dark); letter-spacing: -0.05em;}
+h2 { font-size: 2.5rem; text-align: center; margin-top: var(--space-lg); margin-bottom: var(--space-md); color: var(--color-text-dark); }
+h3 { font-size: 1.8rem; }
 
 /* Paragraphs */
 p {
   margin-bottom: 1em;
-  color: var(--color-text-secondary);
+  color: var(--color-text-dark); /* Changed to dark for readability on light bg */
 }
 
 /* --- 3. Main App Container (Full Width by Default) --- */
 .app-container {
-  width: 100%; /* Ensures full width */
+  width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevents horizontal scroll */
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows app container to take up available height */
+  min-height: 100vh;
 }
 
 .section-padding { /* Reusable class for section padding */
   padding: var(--space-lg) var(--space-md);
-  width: 100%;
-  max-width: 1400px; /* Wider content max-width */
-  margin: 0 auto; /* Center content within the wider sections */
+  max-width: 1400px; /* Max width for content within sections */
+  margin: 0 auto;
+  width: 100%; /* Ensure it respects grid/flex parents */
 }
 
-
-/* --- 4. Header & Navigation --- */
+/* --- 4. Header & Navigation (National Geographic Inspired) --- */
 .app-header {
   width: 100%;
-  background-color: var(--color-bg-lightest);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* More pronounced shadow */
-  padding: 0.8rem var(--space-md);
+  background-color: var(--color-primary-bg); /* Light header background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem var(--space-md);
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--color-bg-light);
+  border-bottom: 1px solid var(--color-secondary-bg);
 }
 
-.header-inner {
+.header-content-wrapper {
+    max-width: 1400px; /* Match content sections width */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px; /* Match max-width of content sections */
-    margin: 0 auto; /* Center inner content */
     width: 100%;
 }
 
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.app-logo-img {
-  width: 120px; /* Fixed width for logo */
-  height: 50px; /* Fixed height for logo */
-  object-fit: contain; /* Ensures logo fits without distortion */
-  flex-shrink: 0; /* Prevent shrinking on small screens */
+.logo-area .app-logo-text {
+  font-family: var(--font-family-heading);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-text-dark);
+  padding: 0.5rem 0;
+  line-height: 1;
 }
 
 .main-nav ul {
@@ -142,245 +137,266 @@ p {
   margin: 0;
   padding: 0;
   display: flex;
-  gap: var(--gap-md); /* Space between nav items */
+  align-items: center;
+  gap: var(--gap-sm);
 }
 
-.nav-button {
+.nav-link-button {
   background: none;
   border: none;
   color: var(--color-text-dark);
-  font-family: var(--font-family-button);
-  font-size: 1.05rem;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0.75rem 1.25rem;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  position: relative;
-  text-decoration: none; /* Ensure no default underline */
-}
-
-.nav-button:hover {
-  color: var(--color-accent-gold);
-  transform: translateY(-2px);
-}
-
-.nav-button::after { /* Underline effect on hover */
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: var(--color-accent-gold);
-  bottom: 0.25rem;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.nav-button:hover::after {
-  width: calc(100% - 1rem);
-}
-
-.auth-button {
-  background-color: var(--color-accent-rose);
-  color: var(--color-text-light);
-  font-weight: bold;
-  border-radius: 25px;
-  padding: 0.75rem 1.5rem;
-  box-shadow: 0 4px 10px rgba(232, 122, 144, 0.4);
-}
-
-.auth-button:hover {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-
-/* --- 5. Hero Section --- */
-.hero-section {
-  background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-lightest) 100%);
-  padding: var(--space-xl) var(--space-md);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 500px; /* Increased minimum height for impact */
-  border-bottom: 1px solid var(--color-bg-medium);
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  animation: fadeInScale 1.5s ease-out; /* Slower, more graceful animation */
-}
-
-.hero-section h1 {
-  font-size: 5.5rem; /* Even larger welcome title */
-  margin-bottom: 1rem;
-  color: var(--color-accent-gold);
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
-}
-
-.hero-tagline {
-  font-size: 1.8rem; /* Larger tagline */
-  font-style: italic;
-  color: var(--color-text-secondary);
-  max-width: 800px;
-  margin: 0 auto var(--space-lg) auto; /* More space before buttons */
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  gap: var(--gap-md);
-}
-
-/* --- 6. Content Grid Sections (Featured, Recent) --- */
-.section-heading {
-  margin-bottom: var(--space-lg);
-  color: var(--color-accent-teal);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly larger min-width for cards */
-  gap: var(--gap-md); /* Consistent gap */
-  width: 100%;
-}
-
-.content-card {
-  background-color: var(--color-bg-lightest);
-  border: 1px solid var(--color-bg-medium);
-  border-radius: 12px; /* Slightly more rounded */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Softer, deeper shadow */
-  padding: var(--space-sm);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
-}
-
-.content-card:hover {
-  transform: translateY(-8px); /* More pronounced lift */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.card-image-wrapper {
-  width: 100%;
-  height: 220px; /* Increased fixed height for image consistency */
-  overflow: hidden;
-  border-radius: 8px;
-  margin-bottom: var(--space-xs);
-  border: 1px solid var(--color-bg-medium);
-}
-
-.card-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Crucial for fitting any image */
-  object-position: center;
-}
-
-.content-card h3 {
-  color: var(--color-text-dark);
-  font-size: 1.8rem;
-  margin-top: 0.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-excerpt {
+  font-family: var(--font-family-body);
   font-size: 1rem;
-  color: var(--color-text-secondary);
-  flex-grow: 1;
-  margin-bottom: var(--space-sm);
+  font-weight: normal;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
 }
 
-.card-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  width: 100%;
+.nav-link-button:hover {
+  color: var(--color-accent-yellow);
+  background-color: var(--color-accent-light-yellow-hover);
 }
 
-/* --- 7. General Action Buttons --- */
-.action-button {
-  background-color: var(--color-accent-rose);
+.nav-link-button::after {
+    display: none;
+}
+
+.auth-button-item {
+    margin-left: var(--gap-md);
+}
+
+.nav-auth-button {
+  background-color: var(--color-accent-yellow);
   color: var(--color-text-light);
-  border: 2px solid var(--color-accent-rose);
-  padding: 0.9rem 1.8rem;
-  border-radius: 30px;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-family-button);
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-auth-button:hover {
+  background-color: var(--color-accent-black);
+  color: var(--color-accent-yellow);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* --- 5. Hero/Welcome Section (Featured Content Style) --- */
+.hero-section {
+  background-color: var(--color-primary-bg);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  border-bottom: 1px solid var(--color-secondary-bg);
+}
+
+.hero-inner-content {
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+.hero-meta {
+    font-family: var(--font-family-card-category);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-xs);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-sm);
+    text-align: center;
+}
+
+.hero-excerpt {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-md);
+}
+
+.hero-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--gap-sm);
+    flex-wrap: wrap;
+}
+
+/* --- 6. General Action Buttons --- */
+.action-button {
+  background-color: var(--color-accent-teal);
+  color: var(--color-text-light);
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
   cursor: pointer;
   font-family: var(--font-family-button);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  transition: all 0.3s ease;
-  flex-grow: 1;
-  max-width: 220px; /* Adjusted max-width for primary buttons */
-  box-shadow: 0 4px 10px rgba(232, 122, 144, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  min-width: 160px;
 }
 
 .action-button:hover {
-  background-color: var(--color-dark-bg);
-  border-color: var(--color-dark-bg);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-accent-black);
+  color: var(--color-accent-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.secondary-button {
-  background-color: transparent;
-  color: var(--color-accent-rose);
-  border-color: var(--color-accent-rose);
-  box-shadow: none;
+.primary-action-button {
+    background-color: var(--color-accent-yellow);
+    color: var(--color-tertiary-bg);
+}
+.primary-action-button:hover {
+    background-color: var(--color-accent-black);
+    color: var(--color-accent-yellow);
 }
 
-.secondary-button:hover {
-  background-color: var(--color-accent-rose);
-  color: var(--color-text-light);
-  border-color: var(--color-accent-rose);
-}
-
-.read-button { /* Specific style for read buttons in cards */
-    font-size: 1rem;
-    padding: 0.75rem 1.25rem;
-    max-width: none;
-    background-color: var(--color-accent-teal); /* Distinct color for "Read" actions */
-    border-color: var(--color-accent-teal);
-    box-shadow: 0 3px 8px rgba(64, 180, 180, 0.3);
-}
-
-.read-button:hover {
-    background-color: var(--color-bg-dark);
-    border-color: var(--color-bg-dark);
+.secondary-action-button {
+    background-color: var(--color-tertiary-bg);
     color: var(--color-text-light);
 }
+.secondary-action-button:hover {
+    background-color: var(--color-accent-yellow);
+    color: var(--color-tertiary-bg);
+}
 
-.mini-button { /* Smaller buttons for secondary actions in cards */
+.card-read-button {
+    background-color: var(--color-accent-teal);
+    min-width: unset;
+    width: calc(100% - 1rem);
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    margin-top: auto;
+}
+.card-read-button:hover {
+    background-color: var(--color-accent-black);
+    color: var(--color-accent-yellow);
+}
+
+.mini-button {
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
-    background-color: var(--color-bg-medium);
-    border-color: var(--color-bg-medium);
+    background-color: var(--color-secondary-bg);
+    border: 1px solid var(--color-text-dark);
     color: var(--color-text-dark);
     box-shadow: none;
 }
 
 .mini-button:hover {
-    background-color: var(--color-text-dark);
-    border-color: var(--color-text-dark);
-    color: var(--color-text-light);
+    background-color: var(--color-accent-black);
+    border-color: var(--color-accent-black);
+    color: var(--color-accent-yellow);
 }
 
 
+/* --- 7. Featured Content Grid (National Geographic Article Grid Inspired) --- */
+.featured-grid-section {
+    background-color: var(--color-primary-bg);
+    padding: var(--space-lg) var(--space-md);
+    border-bottom: 1px solid var(--color-secondary-bg);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-card {
+  background-color: var(--color-primary-bg);
+  border: 1px solid var(--color-secondary-bg);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-secondary-bg);
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-body {
+    padding: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-category {
+    font-family: var(--font-family-card-category);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.card-excerpt {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--space-sm);
+    flex-grow: 1;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: var(--space-xs);
+}
+
 /* --- 8. About Section --- */
 .about-section {
-  background-color: var(--color-bg-light); /* Slightly darker background for separation */
+  background-color: var(--color-secondary-bg);
   padding: var(--space-xl) var(--space-md);
   display: flex;
   flex-wrap: wrap;
@@ -388,19 +404,25 @@ p {
   align-items: center;
   gap: var(--space-lg);
   text-align: center;
-  margin-top: var(--space-lg);
-  box-sizing: border-box;
-  border-top: 1px solid var(--color-bg-medium);
+  border-top: 1px solid var(--color-primary-bg);
+  border-bottom: 1px solid var(--color-primary-bg);
 }
 
 .about-content {
   flex: 1;
   min-width: 300px;
   max-width: 650px;
+  text-align: left;
+}
+
+.about-content .section-heading {
+    text-align: left;
+    color: var(--color-text-dark);
+    margin-bottom: var(--space-md);
 }
 
 .about-content p {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--color-text-dark);
   margin-bottom: var(--space-md);
 }
@@ -409,11 +431,11 @@ p {
   flex: 1;
   min-width: 300px;
   max-width: 550px;
-  height: 400px; /* Increased height for visual impact */
+  height: 350px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  border: 3px solid var(--color-accent-teal); /* Accent border */
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-secondary-bg);
 }
 
 .about-image-container img {
@@ -425,85 +447,171 @@ p {
 
 /* --- 9. Call to Action Section --- */
 .cta-section {
-    background: linear-gradient(45deg, var(--color-bg-dark) 0%, #5A5F8D 100%); /* Stronger, attention-grabbing background */
+    background-color: var(--color-tertiary-bg);
     color: var(--color-text-light);
     text-align: center;
     padding: var(--space-xl) var(--space-md);
-    margin-top: var(--space-lg);
-    box-shadow: inset 0 5px 20px rgba(0,0,0,0.2), inset 0 -5px 20px rgba(0,0,0,0.2);
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.3);
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .cta-heading {
-    color: var(--color-accent-gold); /* Gold heading for impact */
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    font-size: 3.5rem;
+    color: var(--color-accent-yellow);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
 }
 
 .cta-tagline {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     max-width: 800px;
     margin: 0 auto var(--space-lg) auto;
     color: var(--color-text-light);
 }
 
-.cta-buttons .action-button {
-    min-width: 250px; /* Ensure buttons are a decent size */
-    margin: var(--gap-sm); /* Keep spacing for wrapping */
-}
-.cta-buttons .secondary-button { /* Adjust secondary button for dark CTA background */
-    color: var(--color-text-light);
-    border-color: var(--color-text-light);
-}
-.cta-buttons .secondary-button:hover {
-    background-color: var(--color-accent-rose);
-    border-color: var(--color-accent-rose);
-    color: var(--color-text-light);
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gap-md);
 }
 
-
-/* --- 10. Footer --- */
+/* --- 10. Footer (Shut Up & Write! Inspired, Vibrant Yellow) --- */
 .app-footer {
   width: 100%;
-  background-color: var(--color-dark-bg);
-  color: var(--color-text-light);
-  text-align: center;
-  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-footer-bg); /* **Vibrant Yellow Footer** */
+  color: var(--color-footer-dark-text);
+  padding: var(--space-lg) var(--space-md) var(--space-sm);
   font-size: 0.95rem;
-  margin-top: auto; /* Push footer to the bottom if content is short */
-  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: auto;
+  border-top: 1px solid var(--color-secondary-bg);
 }
 
-.footer-content {
-    max-width: 1400px; /* Match main content width */
+.footer-top-row {
+    max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    gap: var(--gap-sm);
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: var(--gap-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: var(--gap-sm);
+.footer-logo-area {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: var(--space-md);
+}
+
+.footer-logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--color-footer-dark-text);
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.footer-column {
+    text-align: left;
+}
+
+.footer-column-title {
+    font-family: var(--font-family-button);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-footer-dark-text);
+    margin-bottom: var(--space-xs);
+    text-align: left;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
 }
 
 .footer-link-button {
-  background: none;
-  border: none;
-  color: var(--color-text-light);
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-  padding: 0.2rem 0.5rem;
+    background: none;
+    border: none;
+    color: var(--color-footer-sub-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
 }
 
 .footer-link-button:hover {
-  color: var(--color-accent-gold);
-  text-decoration: underline;
+    color: var(--color-footer-dark-text);
+    text-decoration: underline;
+}
+
+/* ... (previous CSS in footer section) ... */
+
+.social-icons {
+    display: flex;
+    gap: var(--gap-sm);
+    margin-top: var(--space-xs);
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px; /* Slightly larger for visibility */
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--color-footer-dark-text); /* Dark background */
+    color: var(--color-footer-bg); /* **Vibrant Yellow icon color on dark circle** */
+    font-size: 1.3rem; /* Slightly larger icon size */
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease; /* Added color transition */
+}
+
+.social-icon:hover {
+    background-color: var(--color-accent-black); /* **Black background on hover** */
+    color: var(--color-footer-bg); /* **Keep text yellow on hover for strong contrast** */
+    transform: translateY(-3px) scale(1.05); /* Slightly more pronounced hover */
+}
+
+/* ... (rest of CSS) ... */
+
+.footer-bottom-row {
+    max-width: 1400px;
+    margin: 0.8rem auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+}
+
+.footer-bottom-row p {
+    font-size: 0.85rem;
+    color: var(--color-footer-sub-text);
+    margin: 0;
+}
+
+.footer-legal-links { /* The main flex container */
+    display: flex;
+    /* The gap property will be moved to the wrapper inside */
+}
+
+.legal-links-wrapper { /* This is the new wrapper for the buttons themselves */
+    display: flex;
+    gap: var(--gap-sm); /* Apply the gap here */
+}
+
+.footer-link-button.footer-link-small { /* Specific styles for these small links */
+    /* These styles remain */
 }
 
 
@@ -511,7 +619,7 @@ p {
 @keyframes fadeInScale {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
@@ -520,17 +628,31 @@ p {
 }
 
 /* --- 12. Responsive Overrides --- */
-@media (max-width: 1200px) {
-    .hero-section h1 { font-size: 4rem; }
-    .hero-tagline { font-size: 1.5rem; }
-    .section-heading { font-size: 2.8rem; }
+@media (max-width: 1024px) {
+    .hero-section h1 { font-size: 3.2rem; }
+    .hero-tagline { font-size: 1.4rem; }
+    .section-heading { font-size: 2.2rem; }
     .content-card h3 { font-size: 1.6rem; }
-    .cta-heading { font-size: 3rem; }
-    .cta-tagline { font-size: 1.4rem; }
-    .about-image-container { height: 350px; }
+    .cta-heading { font-size: 2.5rem; }
+    .cta-tagline { font-size: 1.2rem; }
+
+    .footer-top-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-logo-area {
+        grid-column: span 2;
+        justify-content: center;
+    }
+    .footer-column {
+        text-align: center;
+        padding: 0;
+    }
+    .footer-column-title { text-align: center; }
+    .footer-column ul { display: flex; flex-direction: column; align-items: center; }
+    .social-icons { justify-content: center; }
 }
 
-@media (max-width: 992px) { /* Tablet landscape */
+@media (max-width: 768px) {
     :root {
         --space-xl: 4rem;
         --space-lg: 3rem;
@@ -538,82 +660,70 @@ p {
         --space-sm: 1.2rem;
         --space-xs: 0.8rem;
     }
-    .app-logo-img { width: 100px; height: 40px; }
-    .nav-button { font-size: 0.95rem; padding: 0.6rem 1rem; }
-    .auth-button { padding: 0.6rem 1.2rem; }
 
-    .hero-section h1 { font-size: 3.5rem; }
-    .hero-tagline { font-size: 1.2rem; }
-    .hero-section { min-height: 400px; }
+    .app-header { padding: 0.5rem var(--space-xs); }
+    .header-content-wrapper { flex-direction: column; gap: var(--gap-sm); }
+    .logo-area { margin-bottom: 0.5rem; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+    .nav-link-button { font-size: 0.85rem; padding: 0.5rem 0.8rem; }
+    .auth-button-item { margin-left: 0; width: 100%; text-align: center; }
+    .nav-auth-button { width: calc(100% - 1rem); max-width: 250px; }
 
-    .section-heading { font-size: 2.5rem; }
-    .content-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .content-card h3 { font-size: 1.4rem; }
-    .card-image-wrapper { height: 180px; }
 
-    .about-section { flex-direction: column; } /* Stack on smaller tablets */
-    .about-image-container { height: 300px; margin-bottom: var(--space-md); }
-    .about-content { order: 2; margin-top: var(--space-md); } /* Text below image */
+    .hero-section { min-height: 300px; padding: var(--space-lg) var(--space-xs); }
+    .hero-title { font-size: 2.8rem; }
+    .hero-excerpt { font-size: 1rem; margin-bottom: var(--space-md); }
+    .action-button { min-width: unset; width: calc(50% - var(--gap-sm)/2); padding: 0.7rem 1rem; font-size: 0.9rem; }
+    .hero-buttons { flex-direction: row; }
 
-    .cta-heading { font-size: 2.5rem; }
-    .cta-tagline { font-size: 1.2rem; }
-    .cta-buttons .action-button { min-width: unset; width: calc(50% - var(--gap-sm)/2); }
-    .footer-content { flex-direction: column; text-align: center; }
-}
 
-@media (max-width: 768px) { /* Tablet portrait & Mobile Landscape */
-    h1 { font-size: 2.8rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.6rem; }
-
-    .app-header {
-        padding: 0.6rem var(--space-xs);
-    }
-    .header-inner {
-        flex-direction: column; /* Stack logo and nav vertically */
-        gap: var(--gap-sm);
-    }
-    .main-nav ul {
-        gap: 0.6rem;
-    }
-    .nav-button {
-        font-size: 0.85rem;
-        padding: 0.5rem 0.8rem;
-        white-space: nowrap; /* Prevent nav buttons from breaking words */
-    }
-    .auth-button {
-        padding: 0.5rem 1rem;
-    }
-
-    .hero-section { min-height: 350px; padding: var(--space-lg) var(--space-xs); }
-    .hero-tagline { font-size: 1.1rem; margin-bottom: var(--space-md); }
-    .action-button {
-        width: 90%; /* Almost full width for buttons */
-        max-width: 350px;
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-    }
-
+    .section-heading { font-size: 2rem; }
     .content-grid {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
         padding: 0 var(--space-xs);
     }
     .content-card {
         padding: var(--space-xs);
     }
     .card-actions {
-        flex-direction: column; /* Stack buttons in cards */
+        flex-direction: column;
         gap: 0.5rem;
     }
-    .action-button.mini-button { /* Ensure mini-buttons also stack */
+    .action-button.mini-button {
         width: 100%;
         max-width: none;
     }
 
-    .about-content p { font-size: 1rem; }
-    .about-image-container { height: 250px; }
 
-    .cta-heading { font-size: 2rem; }
-    .cta-tagline { font-size: 1rem; }
+    .about-section { flex-direction: column-reverse; padding: var(--space-md) var(--space-xs); }
+    .about-image-container { height: 250px; margin-bottom: var(--space-md); }
+    .about-content { margin-top: var(--space-md); }
+    .about-content .section-heading { text-align: center; }
+    .about-content p { font-size: 1rem; }
+
+
+    .cta-heading { font-size: 1.8rem; }
+    .cta-tagline { font-size: 1.1rem; }
     .cta-buttons .action-button { width: 90%; }
+
+    .footer-top-row {
+        grid-template-columns: 1fr;
+    }
+    .footer-logo-area { margin-bottom: var(--space-sm); }
+    .footer-column { margin-bottom: var(--space-sm); }
+    .footer-bottom-row { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+    .hero-title { font-size: 2.5rem; }
+    .hero-excerpt { font-size: 0.9rem; }
+    .nav-link-button { padding: 0.4rem 0.6rem; }
+    .nav-auth-button { padding: 0.6rem 1rem; }
+    .action-button { font-size: 0.85rem; padding: 0.6rem 1rem; width: calc(100% - var(--gap-sm)); }
+    .hero-buttons { flex-direction: column; }
+    .card-read-button { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
+    .footer-bottom-row p { font-size: 0.8rem; }
+    .footer-legal-links { flex-direction: column; }
 }
