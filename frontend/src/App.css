@@ -279,13 +279,16 @@ p {
     color: var(--color-tertiary-bg);
 }
 
-.card-read-button {
+.card-read-button { /* Specific button for cards */
     background-color: var(--color-accent-teal);
     min-width: unset;
-    width: calc(100% - 1rem);
+    /* The width: calc(100% - 1rem) was causing the issue */
+    width: 100%; /* Make it fill the container's width */
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
     margin-top: auto;
+    margin-left: 0.5rem; /* Add consistent left margin */
+    margin-right: 0.5rem; /* Add consistent right margin */
 }
 .card-read-button:hover {
     background-color: var(--color-accent-black);
@@ -352,12 +355,12 @@ p {
   object-fit: cover;
   object-position: center;
 }
-
 .card-body {
+    /* Add padding and make it a flex container */
     padding: var(--space-sm);
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 1; /* Allow content to take remaining height */
 }
 
 .card-category {
