@@ -1,33 +1,62 @@
-// frontend/src/App.jsx - Image Fixes & Vibrant Yellow Palette
-import './App.css'; // Keep this import at the top
+// frontend/src/App.jsx - FINAL CORRECTED VERSION
+import './App.css';
 
 function App() {
   return (
     <div className="app-container">
-      {/* Header Section - Inspired by National Geographic */}
+      {/* Header Section - FINAL CORRECTED VERSION */}
       <header className="app-header">
-        <div className="header-content-wrapper">
-          <div className="logo-area">
-            {/* Placeholder for your actual logo. NatGeo style is text-based. */}
-            <span className="app-logo-text">THE MOONS</span>
+        <div className="header-inner">
+          {/* Desktop: Top Tier with Logo and Social/Auth links */}
+          <div className="header-top-tier">
+            <div className="logo-area">
+              <span className="app-logo-text">THE MOONS</span>
+            </div>
+            <nav className="social-auth-nav">
+              <ul>
+                <li><a href="#" className="nav-social-icon" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" className="nav-social-icon" aria-label="Instagram"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="#" className="nav-social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a></li>
+                <li><button className="nav-button nav-auth-button">Author Login</button></li>
+              </ul>
+            </nav>
           </div>
-          <nav className="main-nav">
-            <ul>
+
+          {/* Desktop: Bottom Tier with Main Nav links */}
+          <div className="header-bottom-tier">
+            <nav className="main-nav">
+              <ul>
+                <li><button className="nav-link-button">Novels</button></li>
+                <li><button className="nav-link-button">Short Stories</button></li>
+                <li><button className="nav-link-button">Poems</button></li>
+                <li><button className="nav-link-button">About</button></li>
+                <li><button className="nav-link-button">FAQs</button></li>
+                <li><button className="nav-link-button">Contact</button></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        {/* Mobile Menu Toggle (Hamburger Icon) */}
+        <button className="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <i className="fas fa-bars"></i>
+        </button>
+      </header>
+
+      {/* This is the mobile menu that will be visible on small screens */}
+      <nav className="mobile-nav-full">
+          <ul>
               <li><button className="nav-link-button">Novels</button></li>
               <li><button className="nav-link-button">Short Stories</button></li>
               <li><button className="nav-link-button">Poems</button></li>
               <li><button className="nav-link-button">About</button></li>
-              {/* Auth button on the right, similar to NatGeo subscribe */}
-              <li className="auth-button-item"><button className="nav-auth-button">Author Login</button></li>
-            </ul>
-          </nav>
-          {/* Mobile menu toggle will go here later */}
-        </div>
-      </header>
+              <li><button className="nav-link-button">FAQs</button></li>
+              <li><button className="nav-link-button">Contact</button></li>
+          </ul>
+      </nav>
 
-      {/* Hero/Welcome Section - Dynamic Featured "Article" style */}
+      {/* Hero Section - FINAL CORRECTED VERSION */}
       <section className="hero-section">
-        <div className="hero-inner-content">
+        <div className="hero-content">
           <div className="hero-meta">
             <span className="hero-category">LATEST NARRATIVE</span>
           </div>
@@ -35,7 +64,6 @@ function App() {
           <p className="hero-excerpt">
             A thrilling new novel begins its journey. Follow Elara as she uncovers ancient secrets
             hidden deep within the Whispering Woods, a place shrouded in myth and peril.
-            Prepare to be drawn into a world where magic breathes and shadows whisper.
           </p>
           <div className="hero-action-buttons">
             <button className="action-button primary-action-button">READ CHAPTER</button>
@@ -44,14 +72,14 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Content Grid - Inspired by NatGeo Article Grid */}
+      {/* Featured Content Grid - FINAL CORRECTED VERSION */}
       <section className="featured-grid-section">
-        <h2 className="section-heading">Featured Stories & Poems</h2>
+        <h2 className="section-heading">Featured Novels & Stories</h2>
         <div className="content-grid">
           {/* Content Card 1 (Novel Excerpt/Chapter) */}
           <div className="content-card">
             <div className="card-image-wrapper">
-              <img src="https://images.unsplash.com/photo-1599495054627-35ad07218a46?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Person writing in a notebook" />
+              <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Person writing in a notebook" />
             </div>
             <div className="card-body">
               <span className="card-category">NOVEL CHAPTER</span>
@@ -137,11 +165,10 @@ function App() {
               <button className="action-button card-read-button">READ</button>
             </div>
           </div>
+        </div>
+      </section>
 
-        </div> {/* End content-grid */}
-      </section> {/* End featured-grid-section */}
-
-      {/* Call to Action Section - Clean & Direct */}
+      {/* Call to Action Section - FINAL CORRECTED VERSION */}
       <section className="cta-section">
         <h2 className="section-heading cta-heading">Ready to Start Your Narrative Journey?</h2>
         <p className="cta-tagline">
@@ -153,28 +180,20 @@ function App() {
         </div>
       </section>
 
-      {/* Footer Section - Inspired by Shut Up & Write! */}
+      {/* Footer Section - FINAL CORRECTED VERSION */}
       <footer className="app-footer">
         <div className="footer-top-row">
           <div className="footer-logo-area">
-            {/* Placeholder for footer logo. Using a verified placeholder image from placehold.co */}
-            <img src="https://placehold.co/100x100/4A4E69/F2D27A?text=The%20MOONS" alt="Footer Logo" className="footer-logo-img" />
+            <img src="https://placehold.co/100x100/4A4E69/F2D27A?text=MOONS" alt="Footer Logo" className="footer-logo-img" />
           </div>
           <div className="footer-column">
             <h4 className="footer-column-title">Contact Us</h4>
             <p>2261 Market Street, #4978</p>
             <p>Schenectady, NY 12301</p>
             <div className="social-icons">
-              {/* Replaced text with Font Awesome placeholder icons */}
-              <a href="#" className="social-icon" aria-label="Facebook">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social-icon" aria-label="Instagram">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="#" className="social-icon" aria-label="Twitter">
-                <i className="fab fa-twitter"></i>
-              </a>
+              <a href="#" className="social-icon" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" className="social-icon" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
             </div>
           </div>
           <div className="footer-column">
@@ -197,7 +216,6 @@ function App() {
         <div className="footer-bottom-row">
           <p>Copyright &copy; 2025 The Moons. All rights reserved.</p>
           <div className="footer-legal-links">
-            {/* NEW: Wrap these two buttons in a div for better flex control */}
             <div className="legal-links-wrapper">
               <button className="footer-link-button footer-link-small">Terms of Service</button>
               <button className="footer-link-button footer-link-small">Privacy Policy</button>

@@ -1,8 +1,8 @@
-/* frontend/src/App.css - Consolidated, Corrected, and Finalized Design */
+/* frontend/src/App.css - FINAL VERSION WITH CORRECT TWO-TIER MENU */
 
 /* --- 1. Color Palette & Global Variables --- */
 :root {
-  /* Primary Colors - Lighter, more vibrant, with deep yellow */
+  /* Colors based on Original.jpg and Shut Up & Write! */
   --color-primary-bg: #F8F8F8;        /* Very light, almost white background */
   --color-secondary-bg: #F0F0E0;      /* Soft, warm light yellow/beige for sections */
   --color-tertiary-bg: #333333;       /* Dark charcoal for strong contrast */
@@ -72,17 +72,17 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
   margin-top: var(--space-sm);
   margin-bottom: var(--space-xs);
-  text-align: center; /* Default center align for general headings */
+  text-align: center;
 }
 
-h1 { font-size: 3.8rem; color: var(--color-text-dark); letter-spacing: -0.05em;}
-h2 { font-size: 2.5rem; text-align: center; margin-top: var(--space-lg); margin-bottom: var(--space-md); color: var(--color-text-dark); }
+h1 { font-size: 3.8rem; letter-spacing: -0.05em;}
+h2 { font-size: 2.5rem; margin-top: var(--space-lg); margin-bottom: var(--space-md); }
 h3 { font-size: 1.8rem; }
 
 /* Paragraphs */
 p {
   margin-bottom: 1em;
-  color: var(--color-text-dark); /* Changed to dark for readability on light bg */
+  color: var(--color-text-dark);
 }
 
 /* --- 3. Main App Container (Full Width by Default) --- */
@@ -97,32 +97,41 @@ p {
 
 .section-padding { /* Reusable class for section padding */
   padding: var(--space-lg) var(--space-md);
-  max-width: 1400px; /* Max width for content within sections */
+  max-width: 1400px;
   margin: 0 auto;
-  width: 100%; /* Ensure it respects grid/flex parents */
+  width: 100%;
 }
 
-/* --- 4. Header & Navigation (National Geographic Inspired) --- */
+/* --- 4. Header & Navigation (Final Version) --- */
 .app-header {
   width: 100%;
-  background-color: var(--color-primary-bg); /* Light header background */
+  background-color: var(--color-primary-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  padding: 0.5rem var(--space-md);
+  padding: 0 var(--space-md);
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--color-secondary-bg);
 }
-
-.header-content-wrapper {
-    max-width: 1400px; /* Match content sections width */
+.header-inner {
+    max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
+    display: block;
+}
+.header-top-tier {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent; /* **FIXED**: Removed the separator line */
 }
-
+.header-bottom-tier {
+    display: flex;
+    justify-content: center; /* **FIXED**: Center the main nav */
+    align-items: center;
+    padding: 0.5rem 0;
+}
 .logo-area .app-logo-text {
   font-family: var(--font-family-heading);
   font-size: 1.8rem;
@@ -131,8 +140,7 @@ p {
   padding: 0.5rem 0;
   line-height: 1;
 }
-
-.main-nav ul {
+.social-auth-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -140,7 +148,44 @@ p {
   align-items: center;
   gap: var(--gap-sm);
 }
-
+.nav-social-icon {
+    color: var(--color-text-dark);
+    font-size: 1.2rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.nav-social-icon:hover {
+    color: var(--color-accent-teal);
+    transform: translateY(-2px);
+}
+.nav-auth-button {
+  background-color: var(--color-accent-yellow);
+  color: var(--color-tertiary-bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-family-button);
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-left: var(--gap-md);
+}
+.nav-auth-button:hover {
+  background-color: var(--color-accent-black);
+  color: var(--color-accent-yellow);
+  transform: translateY(-1px);
+}
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+}
 .nav-link-button {
   background: none;
   border: none;
@@ -156,57 +201,26 @@ p {
   letter-spacing: 0.05em;
   border-radius: 4px;
 }
-
 .nav-link-button:hover {
   color: var(--color-accent-yellow);
   background-color: var(--color-accent-light-yellow-hover);
 }
+.mobile-menu-toggle { display: none; }
+.mobile-nav-full { display: none; }
 
-.nav-link-button::after {
-    display: none;
-}
 
-.auth-button-item {
-    margin-left: var(--gap-md);
-}
-
-.nav-auth-button {
-  background-color: var(--color-accent-yellow);
-  color: var(--color-text-light);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-family: var(--font-family-button);
-  font-size: 0.95rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.nav-auth-button:hover {
-  background-color: var(--color-accent-black);
-  color: var(--color-accent-yellow);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-/* --- 5. Hero/Welcome Section (Featured Content Style) --- */
+/* --- 5. Hero/Welcome Section (Final Corrected) --- */
 .hero-section {
   background-color: var(--color-primary-bg);
   padding: var(--space-lg) var(--space-md);
   text-align: center;
   border-bottom: 1px solid var(--color-secondary-bg);
 }
-
-.hero-inner-content {
+.hero-content {
     max-width: 900px;
     margin: 0 auto;
     animation: fadeInScale 1.5s ease-out;
 }
-
 .hero-meta {
     font-family: var(--font-family-card-category);
     font-size: 0.9rem;
@@ -215,27 +229,24 @@ p {
     letter-spacing: 0.1em;
     margin-bottom: var(--space-xs);
 }
-
 .hero-title {
     font-size: 3.5rem;
     color: var(--color-text-dark);
     margin-bottom: var(--space-sm);
-    text-align: center;
 }
-
 .hero-excerpt {
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--color-text-dark);
     margin-bottom: var(--space-md);
 }
-
 .hero-action-buttons {
     display: flex;
     justify-content: center;
     gap: var(--gap-sm);
     flex-wrap: wrap;
 }
+
 
 /* --- 6. General Action Buttons --- */
 .action-button {
@@ -253,14 +264,12 @@ p {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   min-width: 160px;
 }
-
 .action-button:hover {
   background-color: var(--color-accent-black);
   color: var(--color-accent-yellow);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 .primary-action-button {
     background-color: var(--color-accent-yellow);
     color: var(--color-tertiary-bg);
@@ -269,7 +278,6 @@ p {
     background-color: var(--color-accent-black);
     color: var(--color-accent-yellow);
 }
-
 .secondary-action-button {
     background-color: var(--color-tertiary-bg);
     color: var(--color-text-light);
@@ -278,46 +286,41 @@ p {
     background-color: var(--color-accent-yellow);
     color: var(--color-tertiary-bg);
 }
-
-.card-read-button { /* Specific button for cards */
+.card-read-button {
     background-color: var(--color-accent-teal);
-    min-width: unset;
-    /* The width: calc(100% - 1rem) was causing the issue */
-    width: 100%; /* Make it fill the container's width */
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
-    margin-top: auto;
-    margin-left: 0.5rem; /* Add consistent left margin */
-    margin-right: 0.5rem; /* Add consistent right margin */
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    font-family: var(--font-family-button);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: calc(100% - 2 * var(--space-sm));
+    margin-top: var(--space-sm);
+    margin-left: var(--space-sm);
+    margin-right: var(--space-sm);
 }
 .card-read-button:hover {
     background-color: var(--color-accent-black);
     color: var(--color-accent-yellow);
-}
-
-.mini-button {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
-    background-color: var(--color-secondary-bg);
-    border: 1px solid var(--color-text-dark);
-    color: var(--color-text-dark);
-    box-shadow: none;
-}
-
-.mini-button:hover {
-    background-color: var(--color-accent-black);
-    border-color: var(--color-accent-black);
-    color: var(--color-accent-yellow);
+    transform: translateY(-2px);
 }
 
 
-/* --- 7. Featured Content Grid (National Geographic Article Grid Inspired) --- */
+/* --- 7. Featured Content Grid (Final Corrected) --- */
+.section-heading {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-dark);
+}
 .featured-grid-section {
     background-color: var(--color-primary-bg);
-    padding: var(--space-lg) var(--space-md);
+    padding: var(--space-md) var(--space-md) var(--space-lg);
     border-bottom: 1px solid var(--color-secondary-bg);
 }
-
 .content-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -325,7 +328,6 @@ p {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .content-card {
   background-color: var(--color-primary-bg);
   border: 1px solid var(--color-secondary-bg);
@@ -336,19 +338,16 @@ p {
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .content-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-
 .card-image-wrapper {
   width: 100%;
   height: 200px;
   overflow: hidden;
   border-bottom: 1px solid var(--color-secondary-bg);
 }
-
 .card-image-wrapper img {
   width: 100%;
   height: 100%;
@@ -356,13 +355,13 @@ p {
   object-position: center;
 }
 .card-body {
-    /* Add padding and make it a flex container */
     padding: var(--space-sm);
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allow content to take remaining height */
+    flex-grow: 1;
+    align-items: flex-start;
+    text-align: left;
 }
-
 .card-category {
     font-family: var(--font-family-card-category);
     font-size: 0.85rem;
@@ -372,7 +371,6 @@ p {
     margin-bottom: 0.5rem;
     display: block;
 }
-
 .card-title {
     font-size: 1.5rem;
     color: var(--color-text-dark);
@@ -380,15 +378,14 @@ p {
     text-align: left;
     line-height: 1.3;
 }
-
 .card-excerpt {
     font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    color: var(--color-text-dark);
     line-height: 1.5;
     margin-bottom: var(--space-sm);
     flex-grow: 1;
+    text-align: left;
 }
-
 .card-actions {
     display: flex;
     justify-content: flex-end;
@@ -397,58 +394,8 @@ p {
     margin-top: var(--space-xs);
 }
 
-/* --- 8. About Section --- */
-.about-section {
-  background-color: var(--color-secondary-bg);
-  padding: var(--space-xl) var(--space-md);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-lg);
-  text-align: center;
-  border-top: 1px solid var(--color-primary-bg);
-  border-bottom: 1px solid var(--color-primary-bg);
-}
 
-.about-content {
-  flex: 1;
-  min-width: 300px;
-  max-width: 650px;
-  text-align: left;
-}
-
-.about-content .section-heading {
-    text-align: left;
-    color: var(--color-text-dark);
-    margin-bottom: var(--space-md);
-}
-
-.about-content p {
-  font-size: 1.1rem;
-  color: var(--color-text-dark);
-  margin-bottom: var(--space-md);
-}
-
-.about-image-container {
-  flex: 1;
-  min-width: 300px;
-  max-width: 550px;
-  height: 350px;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-secondary-bg);
-}
-
-.about-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* --- 9. Call to Action Section --- */
+/* --- 8. Call to Action Section (Final Corrected) --- */
 .cta-section {
     background-color: var(--color-tertiary-bg);
     color: var(--color-text-light);
@@ -458,39 +405,35 @@ p {
     border-top: 1px solid rgba(255,255,255,0.1);
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-
 .cta-heading {
     color: var(--color-accent-yellow);
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 3rem;
     margin-bottom: var(--space-sm);
 }
-
 .cta-tagline {
     font-size: 1.4rem;
     max-width: 800px;
     margin: 0 auto var(--space-lg) auto;
     color: var(--color-text-light);
 }
-
 .cta-buttons {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: var(--gap-md);
 }
 
-/* --- 10. Footer (Shut Up & Write! Inspired, Vibrant Yellow) --- */
+
+/* --- 9. Footer (Final Corrected) --- */
 .app-footer {
   width: 100%;
-  background-color: var(--color-footer-bg); /* **Vibrant Yellow Footer** */
+  background-color: var(--color-footer-bg);
   color: var(--color-footer-dark-text);
   padding: var(--space-lg) var(--space-md) var(--space-sm);
   font-size: 0.95rem;
   margin-top: auto;
   border-top: 1px solid var(--color-secondary-bg);
 }
-
 .footer-top-row {
     max-width: 1400px;
     margin: 0 auto;
@@ -500,14 +443,12 @@ p {
     padding-bottom: var(--space-md);
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-
 .footer-logo-area {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     padding-right: var(--space-md);
 }
-
 .footer-logo-img {
     width: 100px;
     height: 100px;
@@ -516,11 +457,9 @@ p {
     object-fit: cover;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .footer-column {
     text-align: left;
 }
-
 .footer-column-title {
     font-family: var(--font-family-button);
     font-size: 1.1rem;
@@ -529,17 +468,14 @@ p {
     margin-bottom: var(--space-xs);
     text-align: left;
 }
-
 .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-
 .footer-column ul li {
     margin-bottom: 0.5rem;
 }
-
 .footer-link-button {
     background: none;
     border: none;
@@ -551,42 +487,33 @@ p {
     padding: 0;
     text-align: left;
 }
-
 .footer-link-button:hover {
     color: var(--color-footer-dark-text);
     text-decoration: underline;
 }
-
-/* ... (previous CSS in footer section) ... */
-
 .social-icons {
     display: flex;
     gap: var(--gap-sm);
     margin-top: var(--space-xs);
 }
-
 .social-icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 38px; /* Slightly larger for visibility */
+    width: 38px;
     height: 38px;
     border-radius: 50%;
-    background-color: var(--color-footer-dark-text); /* Dark background */
-    color: var(--color-footer-bg); /* **Vibrant Yellow icon color on dark circle** */
-    font-size: 1.3rem; /* Slightly larger icon size */
+    background-color: var(--color-footer-dark-text);
+    color: var(--color-footer-bg);
+    font-size: 1.3rem;
     text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease; /* Added color transition */
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
 }
-
 .social-icon:hover {
-    background-color: var(--color-accent-black); /* **Black background on hover** */
-    color: var(--color-footer-bg); /* **Keep text yellow on hover for strong contrast** */
-    transform: translateY(-3px) scale(1.05); /* Slightly more pronounced hover */
+    background-color: var(--color-accent-black);
+    color: var(--color-footer-bg);
+    transform: translateY(-3px) scale(1.05);
 }
-
-/* ... (rest of CSS) ... */
-
 .footer-bottom-row {
     max-width: 1400px;
     margin: 0.8rem auto 0;
@@ -596,29 +523,31 @@ p {
     flex-wrap: wrap;
     gap: var(--gap-sm);
 }
-
 .footer-bottom-row p {
     font-size: 0.85rem;
     color: var(--color-footer-sub-text);
     margin: 0;
 }
-
-.footer-legal-links { /* The main flex container */
+.footer-legal-links {
     display: flex;
-    /* The gap property will be moved to the wrapper inside */
 }
-
-.legal-links-wrapper { /* This is the new wrapper for the buttons themselves */
+.legal-links-wrapper {
     display: flex;
-    gap: var(--gap-sm); /* Apply the gap here */
+    gap: var(--gap-sm);
+}
+.footer-link-button.footer-link-small {
+    font-size: 0.85rem;
+    color: var(--color-footer-sub-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-link-button.footer-link-small:hover {
+    color: var(--color-footer-dark-text);
+    text-decoration: underline;
 }
 
-.footer-link-button.footer-link-small { /* Specific styles for these small links */
-    /* These styles remain */
-}
 
-
-/* --- 11. Keyframe Animations --- */
+/* --- 10. Keyframe Animations --- */
 @keyframes fadeInScale {
   from {
     opacity: 0;
@@ -630,7 +559,8 @@ p {
   }
 }
 
-/* --- 12. Responsive Overrides --- */
+
+/* --- 11. Responsive Overrides --- */
 @media (max-width: 1024px) {
     .hero-section h1 { font-size: 3.2rem; }
     .hero-tagline { font-size: 1.4rem; }
@@ -664,50 +594,64 @@ p {
         --space-xs: 0.8rem;
     }
 
+    /* Mobile-first menu */
     .app-header { padding: 0.5rem var(--space-xs); }
-    .header-content-wrapper { flex-direction: column; gap: var(--gap-sm); }
-    .logo-area { margin-bottom: 0.5rem; }
-    .main-nav ul { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-    .nav-link-button { font-size: 0.85rem; padding: 0.5rem 0.8rem; }
-    .auth-button-item { margin-left: 0; width: 100%; text-align: center; }
-    .nav-auth-button { width: calc(100% - 1rem); max-width: 250px; }
+    .header-inner {
+        display: none; /* Hide desktop header content */
+    }
+    .mobile-menu-toggle {
+        display: block; /* Show hamburger menu toggle */
+    }
+    .mobile-nav-full {
+        display: flex; /* Show mobile nav when toggled */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--color-primary-bg);
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        padding: var(--space-xs) 0;
+        position: absolute;
+        top: 60px; /* Position below header */
+        left: 0;
+        z-index: 999;
+    }
+    .mobile-nav-full ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .mobile-nav-full li {
+        width: 100%;
+        border-bottom: 1px solid var(--color-secondary-bg);
+    }
+    .mobile-nav-full .nav-link-button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 1rem var(--space-sm);
+    }
 
 
     .hero-section { min-height: 300px; padding: var(--space-lg) var(--space-xs); }
     .hero-title { font-size: 2.8rem; }
     .hero-excerpt { font-size: 1rem; margin-bottom: var(--space-md); }
-    .action-button { min-width: unset; width: calc(50% - var(--gap-sm)/2); padding: 0.7rem 1rem; font-size: 0.9rem; }
-    .hero-buttons { flex-direction: row; }
-
+    .hero-buttons { flex-direction: column; gap: var(--gap-sm); }
+    .action-button { min-width: unset; width: calc(100% - var(--gap-sm)/2); padding: 0.7rem 1rem; font-size: 0.9rem; }
 
     .section-heading { font-size: 2rem; }
     .content-grid {
         grid-template-columns: 1fr;
         padding: 0 var(--space-xs);
     }
+    .card-body {
+        align-items: center;
+        text-align: center;
+    }
     .content-card {
         padding: var(--space-xs);
     }
-    .card-actions {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .action-button.mini-button {
-        width: 100%;
-        max-width: none;
-    }
+    .card-title { font-size: 1.4rem; }
+    .card-excerpt { font-size: 0.85rem; }
 
-
-    .about-section { flex-direction: column-reverse; padding: var(--space-md) var(--space-xs); }
-    .about-image-container { height: 250px; margin-bottom: var(--space-md); }
-    .about-content { margin-top: var(--space-md); }
-    .about-content .section-heading { text-align: center; }
-    .about-content p { font-size: 1rem; }
-
-
-    .cta-heading { font-size: 1.8rem; }
-    .cta-tagline { font-size: 1.1rem; }
-    .cta-buttons .action-button { width: 90%; }
 
     .footer-top-row {
         grid-template-columns: 1fr;
@@ -722,8 +666,6 @@ p {
     h2 { font-size: 1.6rem; }
     .hero-title { font-size: 2.5rem; }
     .hero-excerpt { font-size: 0.9rem; }
-    .nav-link-button { padding: 0.4rem 0.6rem; }
-    .nav-auth-button { padding: 0.6rem 1rem; }
     .action-button { font-size: 0.85rem; padding: 0.6rem 1rem; width: calc(100% - var(--gap-sm)); }
     .hero-buttons { flex-direction: column; }
     .card-read-button { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
