@@ -10,7 +10,8 @@ function App() {
           {/* Desktop: Top Tier with Logo and Social/Auth links */}
           <div className="header-top-tier">
             <div className="logo-area">
-              <span className="app-logo-text">THE MOONS</span>
+              {/* <span className="app-logo-text">THE MOONS</span> */}
+              <a href="#"><img src="/assets/Logo.png" alt="The Moons Logo" className="app-logo-img" /></a>
             </div>
             <nav className="social-auth-nav">
               <ul>
