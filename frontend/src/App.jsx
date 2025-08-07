@@ -54,13 +54,11 @@ function App() {
           </ul>
       </nav>
 
-      {/* Hero Section - FINAL CORRECTED VERSION */}
+      {/* Hero Section - Placeholder for dynamic image */}
       <section className="hero-section">
+        <div className="hero-background-image" style={{backgroundImage: `url('https://plus.unsplash.com/premium_photo-1719529320784-62161f2728d2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`}}></div>
         <div className="hero-content">
-          <div className="hero-meta">
-            <span className="hero-category">LATEST NARRATIVE</span>
-          </div>
-          <h1 className="hero-title">The Serpent's Coil: Chapter One</h1>
+          <h1>The Serpent's Coil: Chapter One</h1>
           <p className="hero-excerpt">
             A thrilling new novel begins its journey. Follow Elara as she uncovers ancient secrets
             hidden deep within the Whispering Woods, a place shrouded in myth and peril.
