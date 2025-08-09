@@ -1,4 +1,4 @@
-# narratives/models.py
+# narratives/models.py - FINAL VERSION
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -34,9 +34,10 @@ class Novel(models.Model):
     subtitle = models.CharField(max_length=300, blank=True)
     core_concept = models.TextField()
     characters_bible = models.TextField(blank=True)
-    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE)
+    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE, related_name='novels')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    featured_image = models.ImageField(upload_to='novel_images/', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -58,11 +59,65 @@ class Chapter(models.Model):
     def __str__(self):
         return f"{self.novel.title} - Chapter {self.chapter_number}: {self.title}"
 
+class Novella(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=300, blank=True)
+    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE, related_name='novellas')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    featured_image = models.ImageField(upload_to='novella_images/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+class NovellaChapter(models.Model):
+    novella = models.ForeignKey(Novella, on_delete=models.CASCADE, related_name='chapters')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    chapter_number = models.PositiveIntegerField()
+    published_date = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    views = models.PositiveIntegerField(default=0)
+    featured_image = models.ImageField(upload_to='novella_chapter_images/', blank=True, null=True)
+
+    class Meta:
+        unique_together = ('novella', 'chapter_number')
+        ordering = ['chapter_number']
+
+    def __str__(self):
+        return f"{self.novella.title} - Chapter {self.chapter_number}: {self.title}"
+
+
+class ShortStory(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE, related_name='short_stories')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    featured_image = models.ImageField(upload_to='short_story_images/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+class ShortStoryPart(models.Model):
+    short_story = models.ForeignKey(ShortStory, on_delete=models.CASCADE, related_name='parts')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    part_number = models.PositiveIntegerField()
+    published_date = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    views = models.PositiveIntegerField(default=0)
+    featured_image = models.ImageField(upload_to='short_story_part_images/', blank=True, null=True)
+
+    class Meta:
+        unique_together = ('short_story', 'part_number')
+        ordering = ['part_number']
+
+    def __str__(self):
+        return f"{self.short_story.title} - Part {self.part_number}: {self.title}"
+
 class Narrative(models.Model):
     NARRATIVE_TYPES = (
         ('blog', 'Blog Post'),
-        ('story', 'Short Story'),
-        ('poem', 'Poem'),
         ('personal', 'Personal Experience'),
         ('social', 'Social Issue')
     )
@@ -70,7 +125,7 @@ class Narrative(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=300, blank=True)
     body = models.TextField()
-    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE)
+    author = models.ForeignKey(AuthorProfile, on_delete=models.CASCADE, related_name='narratives')
     post_type = models.CharField(max_length=10, choices=NARRATIVE_TYPES, default='blog')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
