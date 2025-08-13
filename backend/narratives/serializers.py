@@ -1,4 +1,4 @@
-# narratives/serializers.py
+# narratives/serializers.py - FINAL CORRECTED VERSION
 
 from rest_framework import serializers
 from .models import (
@@ -25,7 +25,7 @@ class NovellaChapterSerializer(serializers.ModelSerializer):
 
 class NovellaSerializer(serializers.ModelSerializer):
     chapters = NovellaChapterSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = Novella
         fields = '__all__'
@@ -37,7 +37,7 @@ class ShortStoryPartSerializer(serializers.ModelSerializer):
 
 class ShortStorySerializer(serializers.ModelSerializer):
     parts = ShortStoryPartSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = ShortStory
         fields = '__all__'

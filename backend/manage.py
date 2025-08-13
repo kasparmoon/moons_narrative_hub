@@ -3,9 +3,14 @@
 import os
 import sys
 
+# New lines to ensure the project directory is in the Python path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if sys.path[0] != BASE_DIR:
+    sys.path.insert(0, BASE_DIR)
 
 def main():
     """Run administrative tasks."""
+    # Corrected the project name from 'moons_project' to 'the_moons_project'
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'the_moons_project.settings')
     try:
         from django.core.management import execute_from_command_line
