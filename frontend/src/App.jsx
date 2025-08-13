@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [novels, setNovels] = useState([]);
   const [shortStories, setShortStories] = useState([]);
+  const [novellas, setNovellas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -13,16 +14,19 @@ function App() {
       try {
         const novelsResponse = await fetch('http://127.0.0.1:8000/api/novels/');
         const shortStoriesResponse = await fetch('http://127.0.0.1:8000/api/short-stories/');
+        const novellasResponse = await fetch('http://127.0.0.1:8000/api/novellas/');
 
-        if (!novelsResponse.ok || !shortStoriesResponse.ok) {
+        if (!novelsResponse.ok || !shortStoriesResponse.ok || !novellasResponse.ok) {
           throw new Error('Failed to fetch data from API');
         }
 
         const novelsData = await novelsResponse.json();
         const shortStoriesData = await shortStoriesResponse.json();
+        const novellasData = await novellasResponse.json();
 
         setNovels(novelsData);
         setShortStories(shortStoriesData);
+        setNovellas(novellasData);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -42,7 +46,7 @@ function App() {
     return <div className="error">Error: {error}</div>;
   }
 
-  const featuredContent = [...novels, ...shortStories].slice(0, 6);
+  const featuredContent = [...novels, ...shortStories, ...novellas].slice(0, 6);
 
   return (
     <div className="app-container">
