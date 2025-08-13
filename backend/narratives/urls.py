@@ -1,4 +1,5 @@
 # narratives/urls.py
+# FULL FILE — uses DRF DefaultRouter to register your existing ViewSets.
 
 from rest_framework.routers import DefaultRouter
 from .views import (
