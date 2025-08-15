@@ -14,6 +14,21 @@ pip-delete-this-directory.txt
 *.egg-info/
 .pytest_cache/
 htmlcov/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Envs
 .env
-.DS_Store # macOS specific
-.vscode/ # VS Code specific settings that you might not want to share
+backend/.env
+frontend/.env
+
+# DB & media (local only; don’t commit)
+backend/db.sqlite3
+backend/media/
+
+# OS/Editor
+.DS_Store
+.vscode/
+.idea/
